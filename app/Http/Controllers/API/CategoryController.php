@@ -15,12 +15,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Category::whereNull('parent_id')->with('children')->get();
+        $categories = Category::whereNull('parent_id')->with('children')->get();
+        return response()->json($categories, 200);
     }
 
     public function getServices($id){
-        $category = Category::findOrFail($id);
-        return $category->posts;
+        $posts = Category::find($id)->posts;
+        return response()->json($posts, 200);
     }
 
     /**
