@@ -41,6 +41,6 @@ Route::group([
 //        'middleware' => 'auth:api'
     ], function() {
         Route::get('logout', 'AuthController@logout');
-        Route::get('me', 'AuthController@customer');
+        Route::post('me', 'AuthController@customer');
     });
 });

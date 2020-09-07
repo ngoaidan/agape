@@ -23,8 +23,4 @@ class Customer extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function findForPassport($username)
-    {
-        return $this->where('username', $username)->first();
-    }
 }
