@@ -18,6 +18,12 @@ Route::apiResource('categories', 'API\CategoryController');
 
 Route::get('categories/{id}/services', 'API\CategoryController@getServices');
 
+
+Route::name('auth.')->namespace('API')->group(function () {
+    Route::post('register', 'AuthController@create')->name('register');
+    Route::post('login', 'AuthController@login')->name('login');
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
