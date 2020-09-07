@@ -85,6 +85,7 @@ class AuthController extends Controller
      */
     public function customer(Request $request)
     {
+        return Customer::where('phone_number', '0989083484')->first()->findForPassport;
         return response()->json($request->user());
     }
 }
