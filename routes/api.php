@@ -30,17 +30,19 @@ Route::get('categories/{id}/services', 'API\CategoryController@getServices');
 //    return $request->user();
 //});
 
-Route::group([
-    'name' => 'auth.',
-    'namespace' => 'API',
-], function () {
+Route::group(['namespace' => 'API'], function () {
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@create');
 
-    Route::group([
-        'middleware' => 'auth:api'
-    ], function() {
+    Route::group(['middleware' => 'auth:api'], function() {
         Route::get('logout', 'AuthController@logout');
         Route::post('me', 'AuthController@customer');
+        Route::apiResource('categories', 'CategoryController');
+
     });
+
 });
+
+
+
+

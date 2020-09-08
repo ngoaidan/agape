@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -50,6 +51,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        if ($exception instanceof ModelNotFoundException) {
+            return response()->json(['error' => str_replace('App\\Models\\', '', $exception->getModel()).' not found'], 404);
+        } else if ($exception instanceof RequestException) {
+            return response()->json(['error' => 'External API call failed.'], 500);
+        }
         return parent::render($request, $exception);
     }
 }
