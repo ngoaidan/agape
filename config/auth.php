@@ -42,10 +42,10 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
+            'driver' => 'passport',
+            'provider' => 'customers',
             'hash' => false,
-        ],
+        ]
     ],
 
     /*
@@ -68,13 +68,17 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => TCG\Voyager\Models\User::class,
+            'model' => App\Models\User::class,
         ],
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'customers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Customer::class,
+        ],
     ],
 
     /*
