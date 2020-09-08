@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SigninRequest;
 use App\Http\Requests\SignupRequest;
 use App\Models\Customer;
+use App\Service\AuthService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -14,6 +15,13 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    private $authService;
+
+    public function __construct(AuthService $authService)
+    {
+        $this->authService = $authService;
+    }
+
     protected function create(SignupRequest $request)
     {
         $customer = Customer::where('phone_number', $request['phone_number'])->first();
@@ -24,13 +32,12 @@ class AuthController extends Controller
                 'password' => Hash::make($request['password']),
             ]);
 
-            return $customer;
+            $tokenResult = $this->createToken($customer);
+            return response()->json($this->authService->successAuthResponse($tokenResult));
+
         }else{
-            return response()->json(
-                [
-                    'error' => 'Số điện thoại đã được sử dụng!',
-                    'status_code' => 422,
-                ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+            return response()->json($this->authService->failAuthResponse(["phone_number" => "Số điện thoại đã được sử dụng!"], JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
+                , JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
         }
 
     }
@@ -39,31 +46,32 @@ class AuthController extends Controller
     {
         $customer = Customer::Where('phone_number', $request->phone_number)
             ->first();
-        if($customer){
-            if (Hash::check($request->password, $customer->password)) {
-                $tokenResult = $customer->createToken('Personal Access Token');
-                $token = $tokenResult->token;
-                if ($request->remember_me)
-                    $token->expires_at = Carbon::now()->addWeeks(1);
-                $token->save();
-                return response()->json([
-                    'access_token' => $tokenResult->accessToken,
-                    'token_type' => 'Bearer',
-                    'expires_at' => Carbon::parse(
-                        $tokenResult->token->expires_at
-                    )->toDateTimeString()
-                ]);
 
-            } else {
-                $response = ['Mật khẩu không đúng'];
-                return response($response, 422);
-            }
-        }else {
-            $response = ['Tài khoản không tồn tại'];
-            return response($response, 422);
+        if(!$customer){
+            $response = ["phone_number" => "Tài khoản không tồn tại"];
+            return response($this->authService->failAuthResponse($response), 403);
+        }
+
+        if (Hash::check($request->password, $customer->password)) {
+            $tokenResult = $this->createToken($customer);
+            return response()->json($this->authService->successAuthResponse($tokenResult));
+
+        } else {
+            $response = ['password'=>'Mật khẩu không đúng'];
+            return response($this->authService->failAuthResponse($response), 403);
         }
 
     }
+
+    private function createToken(Customer $customer, $remember_me = false){
+        $tokenResult = $customer->createToken('Personal Access Token');
+        $token = $tokenResult->token;
+        if ($remember_me)
+            $token->expires_at = Carbon::now()->addWeeks(1);
+        $token->save();
+        return $tokenResult;
+    }
+
 
     /**
      * Logout user (Revoke the token)
@@ -72,10 +80,11 @@ class AuthController extends Controller
      */
     public function logout(Request $request)
     {
-//        $request->user()->token()->revoke();
-        return response()->json([
+        $request->user()->token()->revoke();
+        $message = [
             'message' => 'Successfully logged out'
-        ]);
+        ];
+        return response()->json($message);
     }
 
     /**

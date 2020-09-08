@@ -35,10 +35,10 @@ Route::group([
     'namespace' => 'API',
 ], function () {
     Route::post('login', 'AuthController@login');
-    Route::post('signup', 'AuthController@signup');
+    Route::post('signup', 'AuthController@create');
 
     Route::group([
-//        'middleware' => 'auth:api'
+        'middleware' => 'auth:api'
     ], function() {
         Route::get('logout', 'AuthController@logout');
         Route::post('me', 'AuthController@customer');

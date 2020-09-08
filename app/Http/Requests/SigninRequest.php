@@ -28,7 +28,7 @@ class SigninRequest extends FormRequest
     public function rules()
     {
         return [
-//            'phone_number' => ['required', 'numeric'],
+            'phone_number' => ['required', 'numeric'],
             'password' => ['required', 'string', 'min:6'],
         ];
     }
@@ -47,7 +47,7 @@ class SigninRequest extends FormRequest
 
         throw new HttpResponseException(response()->json(
             [
-                'error' => $errors,
+                'errors' => $errors,
                 'status_code' => 422,
             ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY));
     }

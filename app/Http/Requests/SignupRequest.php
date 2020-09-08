@@ -49,7 +49,7 @@ class SignupRequest extends FormRequest
 
         throw new HttpResponseException(response()->json(
             [
-                'error' => $errors,
+                'errors' => $errors,
                 'status_code' => 422,
             ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY));
     }
