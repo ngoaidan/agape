@@ -35,6 +35,7 @@ Route::group(['namespace' => 'API'], function () {
         Route::post('me', 'AuthController@customer');
         Route::apiResource('categories', 'CategoryController');
         Route::get('categories/{id}/services', 'CategoryController@getServices');
+        Route::get('categories/{id}/products', 'CategoryController@getProducts');
 
     });
 

@@ -43,7 +43,8 @@ class Category extends Model
     }
 
     public function products(){
-        return $this->hasMany(Product::class)->published();
+        return $this->hasMany(Product::class)
+            ->published();
 
     }
 }

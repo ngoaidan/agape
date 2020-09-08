@@ -25,7 +25,8 @@ class CategoryController extends Controller
     }
 
     public function getProducts($id){
-
+        $products = Category::find($id)->products;
+        return response()->json($products, 200);
     }
 
     /**
