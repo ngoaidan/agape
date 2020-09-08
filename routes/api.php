@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource('categories', 'API\CategoryController');
-
-Route::get('categories/{id}/services', 'API\CategoryController@getServices');
-
 
 //Route::name('auth.')->namespace('API')->group(function () {
 //    Route::post('register', 'AuthController@create')->name('register');
@@ -38,6 +34,7 @@ Route::group(['namespace' => 'API'], function () {
         Route::get('logout', 'AuthController@logout');
         Route::post('me', 'AuthController@customer');
         Route::apiResource('categories', 'CategoryController');
+        Route::get('categories/{id}/services', 'CategoryController@getServices');
 
     });
 

@@ -24,6 +24,10 @@ class CategoryController extends Controller
         return response()->json($posts, 200);
     }
 
+    public function getProducts($id){
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
