@@ -32,6 +32,7 @@ class SignupRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'phone_number' => ['required', 'numeric'],
             'password' => ['required', 'string', 'min:6'],
+            'identity_number' => 'required',
         ];
     }
 
