@@ -27,6 +27,8 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::group(['namespace' => 'API'], function () {
+    Route::get('provinces', 'AddressController@getProvinces');
+
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@create');
 
@@ -37,7 +39,6 @@ Route::group(['namespace' => 'API'], function () {
         Route::get('categories/{id}/services', 'CategoryController@getServices');
         Route::get('categories/{id}/products', 'CategoryController@getProducts');
 
-        Route::get('provinces', 'AddressController@getProvinces');
     });
 
 });
