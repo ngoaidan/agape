@@ -40,6 +40,7 @@ class CreateProvincesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('devvn_tinhthanhpho');
+        Schema::dropIfExists('devvn_quanhuyen');
         Schema::dropIfExists('devvn_xaphuongthitran');
     }
 }
