@@ -32,7 +32,8 @@ class SignupRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'phone_number' => ['required', 'numeric'],
             'password' => ['required', 'string', 'min:6'],
-            'identity_number' => 'required',
+            'identity_number' => ['required', 'numeric', 'digits_between:6,11'],
+            'enterprise_id' => ['required', 'numeric'],
         ];
     }
 
@@ -66,6 +67,9 @@ class SignupRequest extends FormRequest
             'name.required' => 'Vui lòng nhập tên người dùng',
             'phone_number.required' => 'Vui lòng nhập số điện thoại',
             'password.required' => 'Vui lòng nhập mật khẩu',
+            'identity_number.required' => 'Vui lòng nhập  số chứng minh nhân dân hoặc căn cước',
+            'identity_number.numeric' => 'Số chứng minh nhân dân hoặc căn cước chưa chính xác',
+            'identity_number.digits_between' => 'Số chứng minh nhân dân hoặc căn cước chưa chính xác',
         ];
     }
 }

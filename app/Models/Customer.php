@@ -11,7 +11,7 @@ class Customer extends Authenticatable
     use Notifiable, HasApiTokens;
 
     protected $fillable = [
-        'name', 'password', 'phone_number'
+        'name', 'password', 'phone_number', 'enterprise_id', 'identity_number'
     ];
 
     /**
@@ -22,5 +22,9 @@ class Customer extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    function enterprise(){
+        return $this->belongsTo(Enterprise::class);
+    }
 
 }

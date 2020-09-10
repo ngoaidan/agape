@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SigninRequest;
 use App\Http\Requests\SignupRequest;
 use App\Models\Customer;
+use App\Models\User;
 use App\Service\AuthService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -30,6 +31,8 @@ class AuthController extends Controller
                 'name' => $request['name'],
                 'phone_number' => $request['phone_number'],
                 'password' => Hash::make($request['password']),
+                'enterprise_id' => $request['enterprise_id'],
+                'identity_number' => $request['identity_number'],
             ]);
 
             $tokenResult = $this->createToken($customer);
@@ -94,6 +97,8 @@ class AuthController extends Controller
      */
     public function customer(Request $request)
     {
-        return response()->json($request->user());
+        $customerId = $request->user()->id;
+        $customer = Customer::where('id',$customerId)->with('enterprise')->get();
+        return response()->json($customer, 200);
     }
 }
