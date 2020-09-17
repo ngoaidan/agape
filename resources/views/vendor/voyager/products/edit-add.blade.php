@@ -1,7 +1,7 @@
 @php
     $edit = !is_null($dataTypeContent->getKey());
      $add  = is_null($dataTypeContent->getKey());
-    // dd($dataTypeContent);
+
 @endphp
 
 @extends('voyager::master')
@@ -128,6 +128,16 @@
                             @php
                                 $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
                                 $exclude = ['product_name', 'short_description', 'slug', 'status','description', 'featured', 'image',];
+                                //dd($dataTypeRows);
+                                //foreach ($dataTypeRows as $key=>$data){
+                                  //  if ($data->edit==0 ){
+                                   //     dd($data->field);
+
+                                   //     unset($dataTypeContent[$data->field]) ;
+                                   //     }
+                                //}
+                                //unset($dataTypeContent['slug']) ;
+
                             @endphp
 
                             @foreach($dataTypeRows as $row)
@@ -138,7 +148,7 @@
                                     @if (isset($row->details->formfields_custom))
                                         @include('voyager::formfields.custom.' . $row->details->formfields_custom)
                                     @else
-                                        <div class="form-group @if($row->type == 'hidden') hidden @endif @if(isset($display_options->width)){{ 'col-md-' . $display_options->width }}@endif" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
+                                        <div class="form-group  @if($row->type == 'hidden') hidden @endif  @if(isset($display_options->width)){{ 'col-md-' . $display_options->width }}@endif" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
                                             {{ $row->slugify }}
                                             <label for="name">{{ $row->getTranslatedAttribute('display_name') }}</label>
                                             @include('voyager::multilingual.input-hidden-bread-edit-add')
@@ -175,17 +185,18 @@
                         <div class="panel-body">
                             <div class="form-group">
                                 <label for="slug">Slug</label>
+
                                 <input type="text" class="form-control" id="slug" name="slug"
                                        placeholder="slug"
                                        {!! isFieldSlugAutoGenerator($dataType, $dataTypeContent, "slug") !!}
                                        value="{{ $dataTypeContent->slug ?? '' }}">
                             </div>
+
                             <div class="form-group">
                                 <label for="status">Status</label>
                                 <select class="form-control" name="status">
-                                    <option value="PUBLISHED"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'PUBLISHED') selected="selected"@endif>{{ __('voyager::post.status_published') }}</option>
-                                    <option value="DRAFT"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'DRAFT') selected="selected"@endif>{{ __('voyager::post.status_draft') }}</option>
-                                    <option value="PENDING"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'PENDING') selected="selected"@endif>{{ __('voyager::post.status_pending') }}</option>
+                                    <option value="inStock"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'inStock') selected="selected"@endif>Còn Món</option>
+                                    <option value="outStock"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'outStock') selected="selected"@endif>Hết Món</option>
                                 </select>
                             </div>
                             <div class="form-group">
