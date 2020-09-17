@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+if (App::environment('production', 'staging')) {
+    URL::forceScheme('https');
+}
+
 Route::get('/', function () {
     return redirect('admin');
 });
