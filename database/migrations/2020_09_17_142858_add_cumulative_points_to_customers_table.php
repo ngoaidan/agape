@@ -14,7 +14,7 @@ class AddCumulativePointsToCustomersTable extends Migration
     public function up()
     {
         Schema::table('customers', function (Blueprint $table) {
-            $table->bigInteger('cumulative_points')->nullable()->after('enterprise_id');
+            $table->bigInteger('cumulative_points')->nullable()->after('enterprise_id')->default(0);
         });
     }
 
