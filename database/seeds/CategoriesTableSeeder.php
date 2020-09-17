@@ -1,229 +1,167 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use TCG\Voyager\Models\Category;
-use TCG\Voyager\Models\DataRow;
-use TCG\Voyager\Models\DataType;
-use TCG\Voyager\Models\Menu;
-use TCG\Voyager\Models\MenuItem;
-use TCG\Voyager\Models\Permission;
 
 class CategoriesTableSeeder extends Seeder
 {
+
     /**
-     * Auto generated seed file.
+     * Auto generated seed file
      *
      * @return void
      */
     public function run()
     {
-        //Data Type
-        $dataType = $this->dataType('name', 'categories');
-        if (!$dataType->exists) {
-            $dataType->fill([
-                'slug'                  => 'categories',
-                'display_name_singular' => __('voyager::seeders.data_types.category.singular'),
-                'display_name_plural'   => __('voyager::seeders.data_types.category.plural'),
-                'icon'                  => 'voyager-categories',
-                'model_name'            => 'TCG\\Voyager\\Models\\Category',
-                'controller'            => '',
-                'generate_permissions'  => 1,
-                'description'           => '',
-            ])->save();
-        }
-        //Data Rows
-        $categoryDataType = DataType::where('slug', 'categories')->firstOrFail();
-        $dataRow = $this->dataRow($categoryDataType, 'id');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'number',
-                'display_name' => __('voyager::seeders.data_rows.id'),
-                'required'     => 1,
-                'browse'       => 0,
-                'read'         => 0,
-                'edit'         => 0,
-                'add'          => 0,
-                'delete'       => 0,
-                'order'        => 1,
-            ])->save();
-        }
+        
 
-        $dataRow = $this->dataRow($categoryDataType, 'parent_id');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'select_dropdown',
-                'display_name' => __('voyager::seeders.data_rows.parent'),
-                'required'     => 0,
-                'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'details'      => [
-                    'default' => '',
-                    'null'    => '',
-                    'options' => [
-                        '' => '-- None --',
-                    ],
-                    'relationship' => [
-                        'key'   => 'id',
-                        'label' => 'name',
-                    ],
-                ],
-                'order' => 2,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($categoryDataType, 'order');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'text',
-                'display_name' => __('voyager::seeders.data_rows.order'),
-                'required'     => 1,
-                'browse'       => 1,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'details'      => [
-                    'default' => 1,
-                ],
-                'order' => 3,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($categoryDataType, 'name');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'text',
-                'display_name' => __('voyager::seeders.data_rows.name'),
-                'required'     => 1,
-                'browse'       => 1,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'order'        => 4,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($categoryDataType, 'slug');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'text',
-                'display_name' => __('voyager::seeders.data_rows.slug'),
-                'required'     => 1,
-                'browse'       => 1,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'details'      => [
-                    'slugify' => [
-                        'origin' => 'name',
-                    ],
-                ],
-                'order' => 5,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($categoryDataType, 'created_at');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'timestamp',
-                'display_name' => __('voyager::seeders.data_rows.created_at'),
-                'required'     => 0,
-                'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 0,
-                'add'          => 0,
-                'delete'       => 0,
-                'order'        => 6,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($categoryDataType, 'updated_at');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'timestamp',
-                'display_name' => __('voyager::seeders.data_rows.updated_at'),
-                'required'     => 0,
-                'browse'       => 0,
-                'read'         => 0,
-                'edit'         => 0,
-                'add'          => 0,
-                'delete'       => 0,
-                'order'        => 7,
-            ])->save();
-        }
-
-        //Menu Item
-        $menu = Menu::where('name', 'admin')->firstOrFail();
-        $menuItem = MenuItem::firstOrNew([
-            'menu_id' => $menu->id,
-            'title'   => __('voyager::seeders.menu_items.categories'),
-            'url'     => '',
-            'route'   => 'voyager.categories.index',
-        ]);
-        if (!$menuItem->exists) {
-            $menuItem->fill([
-                'target'     => '_self',
-                'icon_class' => 'voyager-categories',
-                'color'      => null,
-                'parent_id'  => null,
-                'order'      => 8,
-            ])->save();
-        }
-
-        //Permissions
-        Permission::generateFor('categories');
-
-        //Content
-        $category = Category::firstOrNew([
-            'slug' => 'category-1',
-        ]);
-        if (!$category->exists) {
-            $category->fill([
-                'name' => 'Category 1',
-            ])->save();
-        }
-
-        $category = Category::firstOrNew([
-            'slug' => 'category-2',
-        ]);
-        if (!$category->exists) {
-            $category->fill([
-                'name' => 'Category 2',
-            ])->save();
-        }
-    }
-
-    /**
-     * [dataRow description].
-     *
-     * @param [type] $type  [description]
-     * @param [type] $field [description]
-     *
-     * @return [type] [description]
-     */
-    protected function dataRow($type, $field)
-    {
-        return DataRow::firstOrNew([
-            'data_type_id' => $type->id,
-            'field'        => $field,
-        ]);
-    }
-
-    /**
-     * [dataType description].
-     *
-     * @param [type] $field [description]
-     * @param [type] $for   [description]
-     *
-     * @return [type] [description]
-     */
-    protected function dataType($field, $for)
-    {
-        return DataType::firstOrNew([$field => $for]);
+        \DB::table('categories')->delete();
+        
+        \DB::table('categories')->insert(array (
+            0 => 
+            array (
+                'id' => 1,
+                'parent_id' => NULL,
+                'order' => 1,
+                'name' => 'Cải thiện cuộc sống',
+                'description' => NULL,
+                'image' => NULL,
+                'created_at' => '2020-09-01 09:35:50',
+                'updated_at' => '2020-09-01 09:40:24',
+            ),
+            1 => 
+            array (
+                'id' => 2,
+                'parent_id' => NULL,
+                'order' => 1,
+                'name' => 'Chăm sóc sức khoẻ',
+                'description' => NULL,
+                'image' => NULL,
+                'created_at' => '2020-09-01 09:35:50',
+                'updated_at' => '2020-09-01 09:43:50',
+            ),
+            2 => 
+            array (
+                'id' => 3,
+                'parent_id' => NULL,
+                'order' => 1,
+                'name' => 'Gia Tăng Phúc Lợi',
+                'description' => NULL,
+                'image' => NULL,
+                'created_at' => '2020-09-01 09:44:13',
+                'updated_at' => '2020-09-01 09:44:13',
+            ),
+            3 => 
+            array (
+                'id' => 4,
+                'parent_id' => NULL,
+                'order' => 1,
+                'name' => 'Giải pháp tài chính',
+                'description' => NULL,
+                'image' => NULL,
+                'created_at' => '2020-09-01 09:44:22',
+                'updated_at' => '2020-09-01 09:44:22',
+            ),
+            4 => 
+            array (
+                'id' => 5,
+                'parent_id' => 1,
+                'order' => 1,
+                'name' => 'Đời sống vật chất',
+                'description' => NULL,
+                'image' => NULL,
+                'created_at' => '2020-09-01 09:45:02',
+                'updated_at' => '2020-09-01 09:45:13',
+            ),
+            5 => 
+            array (
+                'id' => 6,
+                'parent_id' => 1,
+                'order' => 1,
+                'name' => 'Đời sống tri thức',
+                'description' => NULL,
+                'image' => NULL,
+                'created_at' => '2020-09-01 09:50:55',
+                'updated_at' => '2020-09-01 09:51:51',
+            ),
+            6 => 
+            array (
+                'id' => 7,
+                'parent_id' => 1,
+                'order' => 1,
+                'name' => 'Đời sống tinh thần',
+                'description' => NULL,
+                'image' => NULL,
+                'created_at' => '2020-09-01 09:52:01',
+                'updated_at' => '2020-09-01 09:52:01',
+            ),
+            7 => 
+            array (
+                'id' => 8,
+                'parent_id' => 1,
+                'order' => 1,
+                'name' => 'Nhật ký cảm xúc',
+                'description' => NULL,
+                'image' => NULL,
+                'created_at' => '2020-09-01 09:52:31',
+                'updated_at' => '2020-09-01 09:52:31',
+            ),
+            8 => 
+            array (
+                'id' => 9,
+                'parent_id' => 5,
+                'order' => 1,
+                'name' => 'Điện tử - Điện lạnh',
+                'description' => NULL,
+                'image' => NULL,
+                'created_at' => '2020-09-01 09:57:33',
+                'updated_at' => '2020-09-01 09:58:01',
+            ),
+            9 => 
+            array (
+                'id' => 10,
+                'parent_id' => 5,
+                'order' => 1,
+                'name' => 'Điện thoại - Máy tính bảng',
+                'description' => NULL,
+                'image' => NULL,
+                'created_at' => '2020-09-01 09:58:35',
+                'updated_at' => '2020-09-01 09:59:27',
+            ),
+            10 => 
+            array (
+                'id' => 11,
+                'parent_id' => 5,
+                'order' => 1,
+                'name' => 'Điện gia dụng',
+                'description' => NULL,
+                'image' => NULL,
+                'created_at' => '2020-09-01 09:59:04',
+                'updated_at' => '2020-09-01 09:59:14',
+            ),
+            11 => 
+            array (
+                'id' => 12,
+                'parent_id' => 5,
+                'order' => 1,
+                'name' => 'Xe hơi - xe máy - xe điện',
+                'description' => NULL,
+                'image' => NULL,
+                'created_at' => '2020-09-01 10:00:03',
+                'updated_at' => '2020-09-01 10:00:03',
+            ),
+            12 => 
+            array (
+                'id' => 13,
+                'parent_id' => 5,
+                'order' => 1,
+                'name' => 'Nhà ở xã hội',
+                'description' => '<p>Day la danh muc</p>',
+                'image' => 'categories/September2020/TAnqdka86bo6VjFNBLvb.png',
+                'created_at' => '2020-09-01 10:01:36',
+                'updated_at' => '2020-09-17 07:43:53',
+            ),
+        ));
+        
+        
     }
 }
