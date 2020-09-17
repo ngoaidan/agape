@@ -27,4 +27,8 @@ class Customer extends Authenticatable
         return $this->belongsTo(Enterprise::class);
     }
 
+    function orders(){
+        return $this->hasMany(Order::class);
+    }
+
 }

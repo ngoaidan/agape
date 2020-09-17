@@ -36,13 +36,18 @@ class OrderController extends Controller
         ]);
         $product = Product::findOrFail($request['product_id']);
 
-        $customerId = $request->user()->id;
+        $customer= Customer::find($request->user()->id);
         $order = Order::create([
-            'customer_id' => $customerId,
+            'customer_id' => $customer->id,
             'status' => Order::STATUS_NEW,
             'product_id' => $product->id,
             'billing_total' => $product->price,
         ]);
+        if($order){
+            $customer->cumulative_points += $order->billing_total;
+            $customer->save();
+        }
+//        return $customer;
         return response()->json($order, 200);
     }
 
