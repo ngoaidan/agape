@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->smallInteger('status');
             $table->unsignedInteger('product_id');
+            $table->integer('billing_total');
             $table->timestamps();
 
             $table->foreign('customer_id')->references('id')->on('customers');
