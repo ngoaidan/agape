@@ -34,7 +34,8 @@ Route::group(['namespace' => 'API'], function () {
 
     Route::group(['middleware' => 'auth:api'], function() {
         Route::get('logout', 'AuthController@logout');
-        Route::get('me', 'AuthController@customer');
+        Route::apiResource('customers', 'CustomerController');
+
         Route::apiResource('categories', 'CategoryController');
         Route::get('categories/{id}/services', 'CategoryController@getServices');
         Route::get('categories/{id}/products', 'CategoryController@getProducts');
