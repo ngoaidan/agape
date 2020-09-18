@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
+use App\Models\Enterprise;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class CustomerController extends Controller
+class EnterpriseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-
+        return Enterprise::all();
     }
 
     /**
@@ -38,9 +37,7 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        $customerId = Auth::id();
-        $customer = Customer::where('id',$customerId)->with('enterprise')->get();
-        return response()->json($customer, 200);
+        //
     }
 
     /**
@@ -52,27 +49,7 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => ['string', 'max:255'],
-            'phone_number' => ['numeric'],
-            'identity_number' => ['numeric', 'digits_between:6,11'],
-            'enterprise_id' => ['numeric'],
-        ]);
-        $customer = Customer::find(Auth::id());
-        $hasPhone = Customer::where('phone_number', '=',$request['phone_number'])->get();
-//        if($hasPhone && ){
-//            return response()->json(['errors'=>['error'=>'Số điện thoại đã tồn tại']]);
-//        }
-        try{
-            $customer->update($request->all());
-        }catch (\Exception $exception){
-            return response()->json([
-                'errors' => [
-                    'error'=>$exception->getMessage()
-                ],
-            ]);
-        }
-        return $customer;
+        //
     }
 
     /**
