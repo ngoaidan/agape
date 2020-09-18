@@ -31,4 +31,8 @@ class Customer extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
+    function loans(){
+        return $this->hasMany(Loan::class);
+    }
+
 }
