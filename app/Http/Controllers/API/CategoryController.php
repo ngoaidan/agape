@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\CategoryCollection;
+use App\Http\Resources\ProductResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class CategoryController extends Controller
     {
         $categories = Category::whereNull('parent_id')->with('children')->get();
         return CategoryResource::collection($categories);
-        return response()->json($categories, 200);
+//        return response()->json($categories, 200);
     }
 
     public function getServices($id){
@@ -29,7 +30,9 @@ class CategoryController extends Controller
 
     public function getProducts($id){
         $products = Category::find($id)->products;
-        return response()->json($products, 200);
+
+        return ProductResource::collection($products);
+//        return response()->json($products, 200);
     }
 
     /**
