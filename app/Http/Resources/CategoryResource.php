@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use TCG\Voyager\Facades\Voyager;
 
 class CategoryResource extends JsonResource
 {
@@ -14,6 +15,15 @@ class CategoryResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            "id"=> $this->id,
+            "parent_id"=> $this->parent_id,
+            "order"=> $this->order,
+            "name"=> $this->name,
+            "thumbnail"=> Voyager::image($this->thumbnail),
+            "description"=> $this->description,
+            "image"=> Voyager::image($this->image),
+            "children" => CategoryResource::collection($this->children),
+        ];
     }
 }
