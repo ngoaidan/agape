@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\CategoryCollection;
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\ServiceResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class CategoryController extends Controller
 
     public function getServices($id){
         $posts = Category::find($id)->posts;
-        return response()->json($posts, 200);
+        return ServiceResource::collection($posts);
+//        return response()->json($posts, 200);
     }
 
     public function getProducts($id){
