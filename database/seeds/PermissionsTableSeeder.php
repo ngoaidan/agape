@@ -385,6 +385,126 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2020-09-03 09:34:26',
                 'updated_at' => '2020-09-03 09:34:26',
             ),
+            46 => 
+            array (
+                'id' => 47,
+                'key' => 'browse_customers',
+                'table_name' => 'customers',
+                'created_at' => '2020-09-23 10:54:26',
+                'updated_at' => '2020-09-23 10:54:26',
+            ),
+            47 => 
+            array (
+                'id' => 48,
+                'key' => 'read_customers',
+                'table_name' => 'customers',
+                'created_at' => '2020-09-23 10:54:26',
+                'updated_at' => '2020-09-23 10:54:26',
+            ),
+            48 => 
+            array (
+                'id' => 49,
+                'key' => 'edit_customers',
+                'table_name' => 'customers',
+                'created_at' => '2020-09-23 10:54:26',
+                'updated_at' => '2020-09-23 10:54:26',
+            ),
+            49 => 
+            array (
+                'id' => 50,
+                'key' => 'add_customers',
+                'table_name' => 'customers',
+                'created_at' => '2020-09-23 10:54:26',
+                'updated_at' => '2020-09-23 10:54:26',
+            ),
+            50 => 
+            array (
+                'id' => 51,
+                'key' => 'delete_customers',
+                'table_name' => 'customers',
+                'created_at' => '2020-09-23 10:54:26',
+                'updated_at' => '2020-09-23 10:54:26',
+            ),
+            51 => 
+            array (
+                'id' => 52,
+                'key' => 'browse_enterprises',
+                'table_name' => 'enterprises',
+                'created_at' => '2020-09-23 10:58:07',
+                'updated_at' => '2020-09-23 10:58:07',
+            ),
+            52 => 
+            array (
+                'id' => 53,
+                'key' => 'read_enterprises',
+                'table_name' => 'enterprises',
+                'created_at' => '2020-09-23 10:58:07',
+                'updated_at' => '2020-09-23 10:58:07',
+            ),
+            53 => 
+            array (
+                'id' => 54,
+                'key' => 'edit_enterprises',
+                'table_name' => 'enterprises',
+                'created_at' => '2020-09-23 10:58:07',
+                'updated_at' => '2020-09-23 10:58:07',
+            ),
+            54 => 
+            array (
+                'id' => 55,
+                'key' => 'add_enterprises',
+                'table_name' => 'enterprises',
+                'created_at' => '2020-09-23 10:58:07',
+                'updated_at' => '2020-09-23 10:58:07',
+            ),
+            55 => 
+            array (
+                'id' => 56,
+                'key' => 'delete_enterprises',
+                'table_name' => 'enterprises',
+                'created_at' => '2020-09-23 10:58:07',
+                'updated_at' => '2020-09-23 10:58:07',
+            ),
+            56 => 
+            array (
+                'id' => 57,
+                'key' => 'browse_orders',
+                'table_name' => 'orders',
+                'created_at' => '2020-09-24 04:28:05',
+                'updated_at' => '2020-09-24 04:28:05',
+            ),
+            57 => 
+            array (
+                'id' => 58,
+                'key' => 'read_orders',
+                'table_name' => 'orders',
+                'created_at' => '2020-09-24 04:28:05',
+                'updated_at' => '2020-09-24 04:28:05',
+            ),
+            58 => 
+            array (
+                'id' => 59,
+                'key' => 'edit_orders',
+                'table_name' => 'orders',
+                'created_at' => '2020-09-24 04:28:05',
+                'updated_at' => '2020-09-24 04:28:05',
+            ),
+            59 => 
+            array (
+                'id' => 60,
+                'key' => 'add_orders',
+                'table_name' => 'orders',
+                'created_at' => '2020-09-24 04:28:05',
+                'updated_at' => '2020-09-24 04:28:05',
+            ),
+            60 => 
+            array (
+                'id' => 61,
+                'key' => 'delete_orders',
+                'table_name' => 'orders',
+                'created_at' => '2020-09-24 04:28:05',
+                'updated_at' => '2020-09-24 04:28:05',
+            ),
         ));
         
         
