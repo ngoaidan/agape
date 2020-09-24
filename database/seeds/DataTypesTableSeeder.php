@@ -139,9 +139,9 @@ class DataTypesTableSeeder extends Seeder
                 'description' => NULL,
                 'generate_permissions' => 1,
                 'server_side' => 0,
-                'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
+                'details' => '{"order_column":"id","order_display_column":"id","order_direction":"asc","default_search_key":null,"scope":null}',
                 'created_at' => '2020-09-03 09:34:26',
-                'updated_at' => '2020-09-08 09:05:52',
+                'updated_at' => '2020-09-24 09:41:27',
             ),
             7 => 
             array (
