@@ -1,6 +1,7 @@
 @php
     $edit = !is_null($dataTypeContent->getKey());
      $add  = is_null($dataTypeContent->getKey());
+     $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
 
 @endphp
 
@@ -97,12 +98,12 @@
                             </div>
                         </div>
                         <div class="panel-body">
-                            <input type="text" class="form-control" id="product_name" name="product_name" placeholder="product name" value="{{ $dataTypeContent->product_name ?? '' }}">
+                            <input type="text" class="form-control" id="product_name" name="name" placeholder="product name" value="{{ $dataTypeContent->name ?? '' }}">
                         </div>
                     </div>
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Full Description</h3>
+                            <h3 class="panel-title">Description</h3>
                             <div class="panel-actions">
                                 <a class="panel-action voyager-resize-full" data-toggle="panel-fullscreen" aria-hidden="true"></a>
                             </div>
@@ -110,7 +111,6 @@
 
                         <div class="panel-body">
                             @php
-                                $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
                                 $row = $dataTypeRows->where('field', 'description')->first();
                             @endphp
                             {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
@@ -125,83 +125,53 @@
                             </div>
                         </div>
                         <div class="panel-body">
-                            @php
-                                $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
-                                $exclude = ['product_name', 'short_description', 'slug', 'status','description', 'featured', 'image',];
-                                //dd($dataTypeRows);
-                                //foreach ($dataTypeRows as $key=>$data){
-                                  //  if ($data->edit==0 ){
-                                   //     dd($data->field);
 
-                                   //     unset($dataTypeContent[$data->field]) ;
-                                   //     }
-                                //}
-                                //unset($dataTypeContent['slug']) ;
-
-                            @endphp
-
-                            @foreach($dataTypeRows as $row)
-                                @if(!in_array($row->field, $exclude))
-                                    @php
-                                        $display_options = $row->details->display ?? NULL;
-                                    @endphp
-                                    @if (isset($row->details->formfields_custom))
-                                        @include('voyager::formfields.custom.' . $row->details->formfields_custom)
-                                    @else
-                                        <div class="form-group  @if($row->type == 'hidden') hidden @endif  @if(isset($display_options->width)){{ 'col-md-' . $display_options->width }}@endif" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
-                                            {{ $row->slugify }}
-                                            <label for="name">{{ $row->getTranslatedAttribute('display_name') }}</label>
-                                            @include('voyager::multilingual.input-hidden-bread-edit-add')
-                                            @if($row->type == 'relationship')
-                                                @include('voyager::formfields.relationship', ['options' => $row->details])
-                                            @else
-                                                {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
-                                            @endif
-
-                                            @foreach (app('voyager')->afterFormFields($row, $dataType, $dataTypeContent) as $after)
-                                                {!! $after->handle($row, $dataType, $dataTypeContent) !!}
-                                            @endforeach
-                                        </div>
-                                    @endif
-                                @endif
-                            @endforeach
+                            <div class="form-group">
+                                @php
+                                    $row = $dataTypeRows->where('field', 'images')->first();
+                                @endphp
+                                <label for="name">{{ $row->getTranslatedAttribute('display_name') }}</label>
+                                {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="panel panel panel-bordered panel-warning">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="icon wb-clipboard"></i>Product Details</h3>
+                            <h3 class="panel-title"><i class="icon wb-clipboard"></i>Product Status</h3>
                             <div class="panel-actions">
                                 <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
                             </div>
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
-                                <label for="short_description">Short Description</label>
-                                <textarea class="form-control" name="short_description">{{ $dataTypeContent->short_description ?? '' }}</textarea>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <label for="slug">Slug</label>
-
-                                <input type="text" class="form-control" id="slug" name="slug"
-                                       placeholder="slug"
-                                       {!! isFieldSlugAutoGenerator($dataType, $dataTypeContent, "slug") !!}
-                                       value="{{ $dataTypeContent->slug ?? '' }}">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="status">Status</label>
-                                <select class="form-control" name="status">
-                                    <option value="inStock"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'inStock') selected="selected"@endif>Còn Món</option>
-                                    <option value="outStock"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'outStock') selected="selected"@endif>Hết Món</option>
-                                </select>
+                                @php
+                                    $row = $dataTypeRows->where('field', 'product_belongsto_category_relationship')->first();
+                                @endphp
+                                <label for="name">{{ $row->getTranslatedAttribute('display_name') }}</label>
+                                @include('voyager::formfields.relationship', ['options' => $row->details])
                             </div>
                             <div class="form-group">
-                                <label for="featured">Featured</label>
-                                <input type="checkbox" name="featured"@if(isset($dataTypeContent->featured) && $dataTypeContent->featured) checked="checked"@endif>
+                                @php
+                                    $row = $dataTypeRows->where('field', 'price')->first();
+                                @endphp
+                                <label for="name">{{ $row->getTranslatedAttribute('display_name') }}</label>
+                                {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
+                            </div>
+                            <div class="form-group">
+                                @php
+                                    $row = $dataTypeRows->where('field', 'status')->first();
+                                @endphp
+                                <label for="name">{{ $row->getTranslatedAttribute('display_name') }}</label>
+                                {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
+                            </div>
+                            <div class="form-group">
+                                @php
+                                    $row = $dataTypeRows->where('field', 'featured')->first();
+                                @endphp
+                                <label for="name">{{ $row->getTranslatedAttribute('display_name') }}</label>
+                                {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
                             </div>
                         </div>
                     </div>
