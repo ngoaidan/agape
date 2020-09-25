@@ -99,13 +99,13 @@ class DataTypesTableSeeder extends Seeder
                 'icon' => 'voyager-news',
                 'model_name' => 'TCG\\Voyager\\Models\\Post',
                 'policy_name' => 'TCG\\Voyager\\Policies\\PostPolicy',
-                'controller' => '',
-                'description' => '',
+                'controller' => NULL,
+                'description' => NULL,
                 'generate_permissions' => 1,
                 'server_side' => 0,
-                'details' => NULL,
+                'details' => '{"order_column":null,"order_display_column":null,"order_direction":"desc","default_search_key":null,"scope":null}',
                 'created_at' => '2020-09-01 09:35:50',
-                'updated_at' => '2020-09-01 09:35:50',
+                'updated_at' => '2020-09-25 04:42:20',
             ),
             5 => 
             array (
@@ -141,7 +141,7 @@ class DataTypesTableSeeder extends Seeder
                 'server_side' => 0,
                 'details' => '{"order_column":"id","order_display_column":"id","order_direction":"asc","default_search_key":null,"scope":null}',
                 'created_at' => '2020-09-03 09:34:26',
-                'updated_at' => '2020-09-24 09:41:27',
+                'updated_at' => '2020-09-24 10:23:09',
             ),
             7 => 
             array (
@@ -196,6 +196,24 @@ class DataTypesTableSeeder extends Seeder
                 'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
                 'created_at' => '2020-09-24 04:28:05',
                 'updated_at' => '2020-09-24 04:57:57',
+            ),
+            10 => 
+            array (
+                'id' => 11,
+                'name' => 'services',
+                'slug' => 'services',
+                'display_name_singular' => 'Service',
+                'display_name_plural' => 'Services',
+                'icon' => NULL,
+                'model_name' => 'App\\Models\\Service',
+                'policy_name' => NULL,
+                'controller' => NULL,
+                'description' => NULL,
+                'generate_permissions' => 1,
+                'server_side' => 0,
+                'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
+                'created_at' => '2020-09-25 05:16:04',
+                'updated_at' => '2020-09-25 06:00:24',
             ),
         ));
         

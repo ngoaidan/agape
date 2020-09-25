@@ -505,6 +505,46 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2020-09-24 04:28:05',
                 'updated_at' => '2020-09-24 04:28:05',
             ),
+            61 => 
+            array (
+                'id' => 62,
+                'key' => 'browse_services',
+                'table_name' => 'services',
+                'created_at' => '2020-09-25 05:16:05',
+                'updated_at' => '2020-09-25 05:16:05',
+            ),
+            62 => 
+            array (
+                'id' => 63,
+                'key' => 'read_services',
+                'table_name' => 'services',
+                'created_at' => '2020-09-25 05:16:05',
+                'updated_at' => '2020-09-25 05:16:05',
+            ),
+            63 => 
+            array (
+                'id' => 64,
+                'key' => 'edit_services',
+                'table_name' => 'services',
+                'created_at' => '2020-09-25 05:16:05',
+                'updated_at' => '2020-09-25 05:16:05',
+            ),
+            64 => 
+            array (
+                'id' => 65,
+                'key' => 'add_services',
+                'table_name' => 'services',
+                'created_at' => '2020-09-25 05:16:05',
+                'updated_at' => '2020-09-25 05:16:05',
+            ),
+            65 => 
+            array (
+                'id' => 66,
+                'key' => 'delete_services',
+                'table_name' => 'services',
+                'created_at' => '2020-09-25 05:16:05',
+                'updated_at' => '2020-09-25 05:16:05',
+            ),
         ));
         
         
