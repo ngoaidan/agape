@@ -42,6 +42,13 @@ class Category extends Model
             ->orderBy('created_at', 'DESC');
     }
 
+    public function services()
+    {
+        return $this->hasMany(Service::class)
+            ->published()
+            ->orderBy('created_at', 'DESC');
+    }
+
     public function products(){
         return $this->hasMany(Product::class)
             ->published();

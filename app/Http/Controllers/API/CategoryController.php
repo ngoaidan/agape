@@ -25,8 +25,8 @@ class CategoryController extends Controller
     }
 
     public function getServices($id){
-        $posts = Category::find($id)->posts;
-        return ServiceResource::collection($posts);
+        $services = Category::find($id)->services;
+        return ServiceResource::collection($services);
 //        return response()->json($posts, 200);
     }
 
