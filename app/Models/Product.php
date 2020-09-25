@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use TCG\Voyager\Traits\Resizable;
 use TCG\Voyager\Traits\Translatable;
 
 class Product extends Model
 {
-    use Translatable;
+    use Translatable, Resizable;
     protected $guarded = [];
 
     const PUBLISHED = 'PUBLISHED';

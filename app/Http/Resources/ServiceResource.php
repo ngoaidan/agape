@@ -22,6 +22,7 @@ class ServiceResource extends JsonResource
             "seo_title"=> $this->seo_title,
             "excerpt"=> $this->excerpt,
             "body"=> $this->body,
+            "thumbnail" => Voyager::image($this->thumbnail('medium')),
             "image"=> Voyager::image($this->image),
             "slug"=> $this->slug,
             "meta_description"=> $this->meta_description,
