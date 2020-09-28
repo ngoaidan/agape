@@ -8,6 +8,7 @@ use App\Http\Requests\SignupRequest;
 use App\Models\Customer;
 use App\Models\User;
 use App\Service\AuthService;
+use http\Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -88,6 +89,23 @@ class AuthController extends Controller
             'message' => 'Successfully logged out'
         ];
         return response()->json($message);
+    }
+
+    public function changePassword(SigninRequest $request){
+        $customer = Customer::Where('phone_number', $request->phone_number)
+            ->first();
+        if(!$customer){
+            $response = ['phone_number'=>'Số điện thoại chưa đăng ký'];
+            return response($this->authService->failAuthResponse($response), 403);
+        }
+        try {
+            $customer->password = Hash::make($request->get('password'));
+            $customer->save();
+            $tokenResult = $this->createToken($customer);
+            return response()->json($this->authService->successAuthResponse($tokenResult));
+        } catch (Exception $e) {
+            return $this->repository->rpError(__('http.failed'));
+        }
     }
 
     /**
