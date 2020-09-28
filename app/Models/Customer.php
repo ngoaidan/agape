@@ -11,7 +11,7 @@ class Customer extends Authenticatable
     use Notifiable, HasApiTokens;
 
     protected $fillable = [
-        'name', 'phone_number', 'enterprise_id', 'identity_number'
+        'name', 'phone_number', 'enterprise_id', 'identity_number', 'password'
     ];
 
     /**
