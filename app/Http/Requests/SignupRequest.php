@@ -34,6 +34,7 @@ class SignupRequest extends FormRequest
             'password' => ['required', 'string', 'min:6'],
             'identity_number' => ['required', 'numeric', 'digits_between:6,11'],
             'enterprise_id' => ['required', 'numeric'],
+            'active_code' => ['required'],
         ];
     }
 

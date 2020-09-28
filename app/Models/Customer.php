@@ -11,7 +11,7 @@ class Customer extends Authenticatable
     use Notifiable, HasApiTokens;
 
     protected $fillable = [
-        'name', 'phone_number', 'enterprise_id', 'identity_number', 'password'
+        'name', 'phone_number', 'enterprise_id', 'identity_number', 'password', 'uid'
     ];
 
     /**
@@ -20,7 +20,7 @@ class Customer extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token'
+        'password', 'remember_token', 'uid'
     ];
 
     function enterprise(){

@@ -26,7 +26,11 @@ class AuthController extends Controller
 
     protected function create(SignupRequest $request)
     {
-        $customer = Customer::where('phone_number', $request['phone_number'])->first();
+        $uid = $this->authService->getUIDFromFirebase($request['active_code']);
+        if(is_array($uid) && array_key_exists("error",$uid)){
+            return response($this->authService->failAuthResponse($uid, 401), 401);
+        }
+        $customer = Customer::where('uid', $uid)->first();
         if(!$customer){
             $customer = Customer::create([
                 'name' => $request['name'],
@@ -34,6 +38,7 @@ class AuthController extends Controller
                 'password' => Hash::make($request['password']),
                 'enterprise_id' => $request['enterprise_id'],
                 'identity_number' => $request['identity_number'],
+                'uid' => $uid,
             ]);
 
             $tokenResult = $this->createToken($customer);
@@ -92,10 +97,14 @@ class AuthController extends Controller
     }
 
     public function changePassword(SigninRequest $request){
-        $customer = Customer::Where('phone_number', $request->phone_number)
-            ->first();
+        $uid = $this->authService->getUIDFromFirebase($request['active_code']);
+        if(is_array($uid) && array_key_exists("error",$uid)){
+            return response($this->authService->failAuthResponse($uid, 401), 401);
+        }
+        $customer = Customer::where('uid', $uid)->first();
+
         if(!$customer){
-            $response = ['phone_number'=>'Số điện thoại chưa đăng ký'];
+            $response = ['uid'=>'Tài khoản chưa đăng ký'];
             return response($this->authService->failAuthResponse($response), 403);
         }
         try {
@@ -119,4 +128,5 @@ class AuthController extends Controller
         $customer = Customer::where('id',$customerId)->with('enterprise')->get();
         return response()->json($customer, 200);
     }
+
 }
