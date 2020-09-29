@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\CategoryCollection;
+use App\Http\Resources\PostResource;
 use App\Http\Resources\ProductResource;
 use App\Http\Resources\ServiceResource;
 use App\Models\Category;
@@ -35,6 +36,12 @@ class CategoryController extends Controller
 
         return ProductResource::collection($products);
 //        return response()->json($products, 200);
+    }
+
+    public function getPosts($id){
+        $posts = Category::findOrFail($id)->posts;
+
+        return PostResource::collection($posts);
     }
 
     /**
