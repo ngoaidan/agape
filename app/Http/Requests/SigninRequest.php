@@ -30,7 +30,6 @@ class SigninRequest extends FormRequest
         return [
             'phone_number' => ['required', 'numeric'],
             'password' => ['required', 'string', 'min:6'],
-            'active_code' => ['required'],
         ];
     }
 
