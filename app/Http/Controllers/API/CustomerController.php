@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AvatarRequest;
+use App\Http\Resources\CustomerResource;
 use App\Models\Customer;
 use App\Service\CustomerService;
 use Illuminate\Http\Request;
@@ -41,8 +42,8 @@ class CustomerController extends Controller
     public function show($id)
     {
         $customerId = Auth::id();
-        $customer = Customer::where('id',$customerId)->with('enterprise')->get();
-        return response()->json($customer, 200);
+        $customer = Customer::where('id',$customerId)->with('enterprise')->first();
+        return new CustomerResource($customer);
     }
 
     /**
