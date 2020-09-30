@@ -17,6 +17,7 @@
         "laravel/passport": "^9.3",
         "laravel/tinker": "^2.0",
         "orangehill/iseed": "^2.6",
+        "qcod/laravel-imageup": "^1.1",
         "tcg/voyager": "^1.4"
     },
     "require-dev": {

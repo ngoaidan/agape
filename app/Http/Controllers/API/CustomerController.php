@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Service\CustomerService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -73,6 +74,20 @@ class CustomerController extends Controller
             ]);
         }
         return $customer;
+    }
+
+    public function uploadAvatar(Request $request){
+        $validatedData = $request->validate([
+            'avatar' => 'image',
+        ]);
+
+        $customer = Customer::find(Auth::id());
+
+        if ($request->hasfile('avatar')) {
+            $customer->uploadImage(request()->file('avatar'), 'avatar');
+            $customer->save();
+            return $customer;
+        }
     }
 
     /**

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +34,7 @@ Route::group(['namespace' => 'API'], function () {
 
     Route::group(['middleware' => 'auth:api'], function() {
         Route::get('logout', 'AuthController@logout');
+        Route::post('customers/avatar', 'CustomerController@uploadAvatar');
         Route::apiResource('customers', 'CustomerController');
         Route::apiResource('enterprises', 'EnterpriseController');
 

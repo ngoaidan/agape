@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83bcfd276a6057456ce02c72d3235513",
+    "content-hash": "1fbdfb832e289b31dbafbce424f19d2d",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -4605,6 +4605,66 @@
                 "shell"
             ],
             "time": "2020-05-03T19:32:03+00:00"
+        },
+        {
+            "name": "qcod/laravel-imageup",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qcod/laravel-imageup.git",
+                "reference": "26ab969c12e8f98f0f2834d8510f26f435a9d341"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/qcod/laravel-imageup/zipball/26ab969c12e8f98f0f2834d8510f26f435a9d341",
+                "reference": "26ab969c12e8f98f0f2834d8510f26f435a9d341",
+                "shasum": ""
+            },
+            "require": {
+                "intervention/image": "^2.4",
+                "laravel/framework": "~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
+                "php": "^7.3"
+            },
+            "require-dev": {
+                "dms/phpunit-arraysubset-asserts": "^0.2.0",
+                "orchestra/testbench": "^4.0|^5.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "QCod\\ImageUp\\ImageUpServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "QCod\\ImageUp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohd Saqueib Ansari",
+                    "email": "saquibweb@gmail.com"
+                }
+            ],
+            "description": "Auto Image upload, resize and crop for Laravel eloquent model using Intervention image",
+            "homepage": "https://github.com/qcod/laravel-imageup",
+            "keywords": [
+                "Image upload",
+                "eloquent",
+                "image crop",
+                "image resize",
+                "intervention image",
+                "laravel",
+                "model"
+            ],
+            "time": "2020-09-14T00:57:08+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
