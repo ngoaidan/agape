@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AvatarRequest;
 use App\Models\Customer;
 use App\Service\CustomerService;
 use Illuminate\Http\Request;
@@ -76,10 +77,7 @@ class CustomerController extends Controller
         return $customer;
     }
 
-    public function uploadAvatar(Request $request){
-        $validatedData = $request->validate([
-            'avatar' => 'image',
-        ]);
+    public function uploadAvatar(AvatarRequest $request){
 
         $customer = Customer::find(Auth::id());
 
