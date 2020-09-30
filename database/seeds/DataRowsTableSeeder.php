@@ -1113,7 +1113,7 @@ class DataRowsTableSeeder extends Seeder
                 'type' => 'rich_text_box',
                 'display_name' => 'Description',
                 'required' => 0,
-                'browse' => 1,
+                'browse' => 0,
                 'read' => 1,
                 'edit' => 1,
                 'add' => 1,
@@ -1587,22 +1587,6 @@ class DataRowsTableSeeder extends Seeder
             ),
             98 => 
             array (
-                'id' => 101,
-                'data_type_id' => 5,
-                'field' => 'price',
-                'type' => 'text',
-                'display_name' => 'Price',
-                'required' => 0,
-                'browse' => 1,
-                'read' => 1,
-                'edit' => 1,
-                'add' => 1,
-                'delete' => 1,
-                'details' => '{}',
-                'order' => 12,
-            ),
-            99 => 
-            array (
                 'id' => 102,
                 'data_type_id' => 11,
                 'field' => 'id',
@@ -1617,7 +1601,7 @@ class DataRowsTableSeeder extends Seeder
                 'details' => '{}',
                 'order' => 1,
             ),
-            100 => 
+            99 => 
             array (
                 'id' => 103,
                 'data_type_id' => 11,
@@ -1633,7 +1617,7 @@ class DataRowsTableSeeder extends Seeder
                 'details' => '{}',
                 'order' => 2,
             ),
-            101 => 
+            100 => 
             array (
                 'id' => 104,
                 'data_type_id' => 11,
@@ -1649,7 +1633,7 @@ class DataRowsTableSeeder extends Seeder
                 'details' => '{}',
                 'order' => 3,
             ),
-            102 => 
+            101 => 
             array (
                 'id' => 105,
                 'data_type_id' => 11,
@@ -1665,7 +1649,7 @@ class DataRowsTableSeeder extends Seeder
                 'details' => '{}',
                 'order' => 4,
             ),
-            103 => 
+            102 => 
             array (
                 'id' => 106,
                 'data_type_id' => 11,
@@ -1681,7 +1665,7 @@ class DataRowsTableSeeder extends Seeder
                 'details' => '{}',
                 'order' => 5,
             ),
-            104 => 
+            103 => 
             array (
                 'id' => 107,
                 'data_type_id' => 11,
@@ -1697,7 +1681,7 @@ class DataRowsTableSeeder extends Seeder
                 'details' => '{"resize":{"width":"1000","height":null},"quality":"70%","upsize":true,"thumbnails":[{"name":"medium","scale":"50%"},{"name":"small","scale":"25%"},{"name":"cropped","crop":{"width":"300","height":"250"}}]}',
                 'order' => 6,
             ),
-            105 => 
+            104 => 
             array (
                 'id' => 108,
                 'data_type_id' => 11,
@@ -1713,7 +1697,7 @@ class DataRowsTableSeeder extends Seeder
                 'details' => '{}',
                 'order' => 7,
             ),
-            106 => 
+            105 => 
             array (
                 'id' => 109,
                 'data_type_id' => 11,
@@ -1729,7 +1713,7 @@ class DataRowsTableSeeder extends Seeder
                 'details' => '{}',
                 'order' => 8,
             ),
-            107 => 
+            106 => 
             array (
                 'id' => 110,
                 'data_type_id' => 11,
@@ -1745,7 +1729,7 @@ class DataRowsTableSeeder extends Seeder
                 'details' => '{}',
                 'order' => 9,
             ),
-            108 => 
+            107 => 
             array (
                 'id' => 111,
                 'data_type_id' => 11,

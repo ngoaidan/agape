@@ -85,9 +85,9 @@ class DataTypesTableSeeder extends Seeder
                 'description' => NULL,
                 'generate_permissions' => 1,
                 'server_side' => 0,
-                'details' => '{"order_column":null,"order_display_column":null,"order_direction":"desc","default_search_key":null,"scope":null}',
+                'details' => '{"order_column":"id","order_display_column":null,"order_direction":"desc","default_search_key":null,"scope":null}',
                 'created_at' => '2020-09-01 09:35:50',
-                'updated_at' => '2020-09-17 15:32:20',
+                'updated_at' => '2020-09-30 03:52:16',
             ),
             4 => 
             array (
@@ -97,7 +97,7 @@ class DataTypesTableSeeder extends Seeder
                 'display_name_singular' => 'Post',
                 'display_name_plural' => 'Posts',
                 'icon' => 'voyager-news',
-                'model_name' => 'TCG\\Voyager\\Models\\Post',
+                'model_name' => 'App\\Models\\Post',
                 'policy_name' => 'TCG\\Voyager\\Policies\\PostPolicy',
                 'controller' => NULL,
                 'description' => NULL,
@@ -105,7 +105,7 @@ class DataTypesTableSeeder extends Seeder
                 'server_side' => 0,
                 'details' => '{"order_column":null,"order_display_column":null,"order_direction":"desc","default_search_key":null,"scope":null}',
                 'created_at' => '2020-09-01 09:35:50',
-                'updated_at' => '2020-09-25 04:42:20',
+                'updated_at' => '2020-09-30 03:48:45',
             ),
             5 => 
             array (
