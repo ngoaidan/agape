@@ -35,6 +35,8 @@ Route::group(['namespace' => 'API'], function () {
     Route::group(['middleware' => 'auth:api'], function() {
         Route::get('logout', 'AuthController@logout');
         Route::post('customers/avatar', 'CustomerController@uploadAvatar');
+        Route::get('customers/order/services', 'CustomerController@orderServices');
+        Route::get('customers/order/products', 'CustomerController@orderProducts');
         Route::apiResource('customers', 'CustomerController');
         Route::apiResource('enterprises', 'EnterpriseController');
 

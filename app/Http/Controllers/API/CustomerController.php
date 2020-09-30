@@ -5,7 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AvatarRequest;
 use App\Http\Resources\CustomerResource;
+use App\Http\Resources\OrderResource;
 use App\Models\Customer;
+use App\Models\Order;
 use App\Service\CustomerService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -100,5 +102,15 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function orderServices(){
+        $customer = Customer::find(Auth::id());
+
+    }
+
+    public function orderProducts(){
+        $orders = Order::where("customer_id", "=", Auth::id())->get();
+        return OrderResource::collection($orders);
     }
 }
