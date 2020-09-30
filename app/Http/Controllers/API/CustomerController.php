@@ -62,10 +62,10 @@ class CustomerController extends Controller
             'enterprise_id' => ['numeric'],
         ]);
         $customer = Customer::find(Auth::id());
-        $hasPhone = Customer::where('phone_number', '=',$request['phone_number'])->get();
-//        if($hasPhone && ){
-//            return response()->json(['errors'=>['error'=>'Số điện thoại đã tồn tại']]);
-//        }
+        $hasPhone = Customer::where('phone_number', '=',$request['phone_number'])->first();
+        if($hasPhone){
+            return response()->json(['errors'=>['error'=>'Số điện thoại đã tồn tại']]);
+        }
         try{
             $customer->update($request->all());
         }catch (\Exception $exception){
@@ -75,7 +75,7 @@ class CustomerController extends Controller
                 ],
             ]);
         }
-        return $customer;
+        return new CustomerResource($customer);
     }
 
     public function uploadAvatar(AvatarRequest $request){
@@ -85,7 +85,7 @@ class CustomerController extends Controller
         if ($request->hasfile('avatar')) {
             $customer->uploadImage(request()->file('avatar'), 'avatar');
             $customer->save();
-            return $customer;
+            return new CustomerResource($customer);
         }
     }
 
