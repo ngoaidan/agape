@@ -7,6 +7,7 @@ use App\Http\Requests\AvatarRequest;
 use App\Http\Resources\CustomerResource;
 use App\Models\Customer;
 use App\Service\CustomerService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -61,6 +62,7 @@ class CustomerController extends Controller
             'identity_number' => ['numeric', 'digits_between:6,11'],
             'enterprise_id' => ['numeric'],
         ]);
+        $request['birth'] = Carbon::parse($request['birth'])->format('Y-m-d');
         $customer = Customer::find(Auth::id());
         $hasPhone = Customer::where('phone_number', '=',$request['phone_number'])->first();
         if($hasPhone){
