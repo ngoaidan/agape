@@ -45,7 +45,11 @@ Route::group(['namespace' => 'API'], function () {
         Route::get('categories/{id}/products', 'CategoryController@getProducts');
         Route::get('categories/{id}/posts', 'CategoryController@getPosts');
 
-        Route::apiResource('orders', 'OrderController');
+//        Route::apiResource('orders', 'OrderController');
+        Route::post('orders/product', 'OrderController@store');
+        Route::get('orders/product', 'OrderController@index');
+        Route::post('orders/service', 'OrderServiceController@store');
+        Route::get('orders/service', 'OrderServiceController@index');
 
         Route::apiResource('loans', 'LoanController');
     });
