@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\OrderResource;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\Product;
@@ -20,7 +21,7 @@ class OrderController extends Controller
     {
         $customerId = Auth::user()->id;
         $orders = Order::where('customer_id', '=', $customerId)->with('product')->get();
-        return response()->json($orders, 200);
+        return OrderResource::collection($orders);
     }
 
     /**

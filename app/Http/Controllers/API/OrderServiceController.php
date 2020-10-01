@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\OrderServiceResource;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderService;
@@ -37,6 +38,6 @@ class OrderServiceController extends Controller
     public function index(){
         $customerId = Auth::user()->id;
         $orderServices = OrderService::where('customer_id', '=', $customerId)->with('service')->get();
-        return response()->json($orderServices, 200);
+        return OrderServiceResource::collection($orderServices);
     }
 }

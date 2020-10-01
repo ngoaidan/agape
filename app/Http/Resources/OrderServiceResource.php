@@ -2,9 +2,10 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Service;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class OrderResource extends JsonResource
+class OrderServiceResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,7 +17,7 @@ class OrderResource extends JsonResource
     {
         return [
             "status"=> $this->status,
-            "product"=> new ProductResource($this->product),
+            "service"=> new ServiceResource($this->service),
             "billing_total"=> $this->billing_total,
             "cumulative_points"=> $this->cumulative_points,
             "created_at"=> $this->created_at
