@@ -35,6 +35,23 @@ class Category extends Model
         return $this->hasMany(self::class, 'parent_id')->with('children');
     }
 
+    public static function rootCategory($id, $categories, $count = 0){
+        $count++;
+
+        foreach ($categories as $category){
+            if($category->id == $id){
+                if(is_null($category->parent_id)){
+                    return $category;
+                }
+                if($count >= 5)
+                    return $category;
+                return Category::rootCategory($category->parent_id, $categories, $count);
+            }
+        }
+
+        return -1;
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class)

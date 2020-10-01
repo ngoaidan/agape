@@ -109,15 +109,15 @@ class CustomerController extends Controller
         //
     }
 
-    public function orderServices(){
-        $customer = Customer::find(Auth::id());
-
-    }
-
-    public function orderProducts(){
-        $orders = Order::where("customer_id", "=", Auth::id())->get();
-        return OrderResource::collection($orders);
-    }
+//    public function orderServices(){
+//        $customer = Customer::find(Auth::id());
+//
+//    }
+//
+//    public function orderProducts(){
+//        $orders = Order::where("customer_id", "=", Auth::id())->get();
+//        return OrderResource::collection($orders);
+//    }
 
     public function getCumulativePoints(){
         $customer = Customer::findOrFail(Auth::id());
