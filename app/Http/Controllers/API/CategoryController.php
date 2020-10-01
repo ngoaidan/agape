@@ -22,20 +22,17 @@ class CategoryController extends Controller
     {
         $categories = Category::whereNull('parent_id')->with('children')->get();
         return CategoryResource::collection($categories);
-//        return response()->json($categories, 200);
     }
 
     public function getServices($id){
         $services = Category::find($id)->services;
         return ServiceResource::collection($services);
-//        return response()->json($posts, 200);
     }
 
     public function getProducts($id){
         $products = Category::find($id)->products;
 
         return ProductResource::collection($products);
-//        return response()->json($products, 200);
     }
 
     public function getPosts($id){
