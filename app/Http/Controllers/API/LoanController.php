@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLoanRequest;
+use App\Http\Resources\LoanResource;
 use App\Models\Customer;
 use App\Models\Loan;
 use Illuminate\Http\Request;
@@ -19,8 +20,10 @@ class LoanController extends Controller
      */
     public function index()
     {
-        $customer = Customer::find(Auth::id());
-        return response()->json($customer->loans, 200);
+        $loans = Loan::where('customer_id', Auth::id())->get();
+        return LoanResource::collection($loans);
+//        return response()->json($customer->loans, 200);
+
     }
 
     /**
