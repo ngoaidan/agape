@@ -24,9 +24,10 @@ class OrderServiceController extends Controller
             'status' => Order::STATUS_NEW,
             'service_id' => $service->id,
             'billing_total' => $service->price,
+            'cumulative_points' => $service->cumulative_points
         ]);
         if($orderService){
-            $customer->cumulative_points += $orderService->billing_total;
+            $customer->cumulative_points += $orderService->cumulative_points;
             $customer->save();
         }
 //        return $customer;

@@ -42,9 +42,10 @@ class OrderController extends Controller
             'status' => Order::STATUS_NEW,
             'product_id' => $product->id,
             'billing_total' => $product->price,
+            'cumulative_points' => $product->cumulative_points,
         ]);
         if($order){
-            $customer->cumulative_points += $order->billing_total;
+            $customer->cumulative_points += $order->cumulative_points;
             $customer->save();
         }
 //        return $customer;
