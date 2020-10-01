@@ -10,11 +10,13 @@ use App\Http\Resources\OrderResource;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Order;
+use App\Models\OrderService;
 use App\Models\Product;
 use App\Models\Service;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use TCG\Voyager\Facades\Voyager;
 
 class CustomerController extends Controller
 {
@@ -157,9 +159,49 @@ class CustomerController extends Controller
 //
 //            }
 //        }
-        return $data = array(
+        $data = array(
             'cumulative_total' => $customer->cumulative_points,
             'categories' => CategoryNonChildrenResource::collection($categories)
         );
+
+        return Response()->json($data, 200);
     }
+
+    public function getCumulativePointsItem($idCategory){
+        $idCustomer = Auth::id();
+        $myOrderProducts = Order::where('customer_id', $idCustomer)->with('product')->get();
+        $myOrderServices = OrderService::where('customer_id', $idCustomer)->with('service')->get();
+
+        $data = array();
+        foreach ($myOrderProducts as $myOrderProduct){
+            $item = [
+                'item' => $myOrderProduct->product->name,
+                'thumbnail' => Voyager::image($myOrderProduct->product->thumbnail('cropped')),
+                'cumulative_points' => $myOrderProduct->cumulative_points,
+                'type' => 'product',
+                'date_order' => $myOrderProduct->created_at,
+            ];
+            array_push($data, $item);
+        }
+
+        foreach ($myOrderServices as $orderService){
+            $item = [
+                'item' => $orderService->service->title,
+                'thumbnail' => Voyager::image($orderService->service->thumbnail('cropped')),
+                'cumulative_points' => $orderService->cumulative_points,
+                'type' => 'service',
+                'date_order' => $orderService->created_at,
+            ];
+            array_push($data, $item);
+        }
+        usort($data, function ($a, $b) {
+            return strcmp($a['date_order'], $b['date_order']);
+        });
+        return Response()->json($data);
+
+    }
+
+
+
+
 }

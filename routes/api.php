@@ -38,6 +38,7 @@ Route::group(['namespace' => 'API'], function () {
         Route::get('customers/order/services', 'CustomerController@orderServices');
         Route::get('customers/order/products', 'CustomerController@orderProducts');
         Route::get('customers/cumulative-points', 'CustomerController@getCumulativePoints');
+        Route::get('customers/cumulative-points/category/{idCategory}', 'CustomerController@getCumulativePointsItem');
         Route::apiResource('customers', 'CustomerController');
         Route::apiResource('enterprises', 'EnterpriseController');
 
