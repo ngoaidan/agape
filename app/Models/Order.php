@@ -23,14 +23,19 @@ class Order extends Model
         ];
     }
 
-    public static function getStatusName($statusId)
-    {
-        $listStatus = self::getListStatus();
-
-        return $listStatus[$statusId] ?? null;
-    }
+//    public static function getStatusName($statusId)
+//    {
+//        $listStatus = self::getListStatus();
+//
+//        return $listStatus[$statusId] ?? null;
+//    }
 
     public function product(){
         return $this->belongsTo(Product::class);
+    }
+
+    public function statusName(){
+        $listStatus = self::getListStatus();
+        return $listStatus[$this->status] ?? null;
     }
 }

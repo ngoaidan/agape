@@ -15,7 +15,7 @@ class OrderResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "status"=> $this->status,
+            "status"=> $this->statusName(),
             "product"=> new ProductResource($this->product),
             "billing_total"=> $this->billing_total,
             "cumulative_points"=> $this->cumulative_points,

@@ -23,6 +23,11 @@ class OrderService extends Model
         ];
     }
 
+    public function statusName(){
+        $listStatus = self::getListStatus();
+        return $listStatus[$this->status] ?? null;
+    }
+
     public static function getStatusName($statusId)
     {
         $listStatus = self::getListStatus();
