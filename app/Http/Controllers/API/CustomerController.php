@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AvatarRequest;
 use App\Http\Resources\CategoryNonChildrenResource;
 use App\Http\Resources\CustomerResource;
-use App\Http\Resources\OrderResource;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Order;
@@ -61,7 +60,7 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $request->validate([
             'name' => ['string', 'max:255'],
@@ -76,7 +75,14 @@ class CustomerController extends Controller
             return response()->json(['errors'=>['error'=>'Số điện thoại đã tồn tại']]);
         }
         try{
-            $customer->update($request->all());
+            $customer->update([
+                'name' => $request['name'],
+                'birth' => $request['birth'],
+                'sex' => $request['sex'],
+                'matp' => $request['matp'],
+                'enterprise_id' => $request['enterprise_id'],
+                'identity_number' => $request['identity_number'],
+            ]);
         }catch (\Exception $exception){
             return response()->json([
                 'errors' => [
