@@ -13,10 +13,10 @@ class Customer extends Authenticatable
     use HasImageUploads;
 
     protected $fillable = [
-        'name', 'enterprise_id', 'identity_number', 'password', 'uid', 'sex', 'birth', 'matp'
+        'name', 'enterprise_id', 'identity_number', 'password', 'uid', 'sex', 'birth', 'matp', 'phone_number'
     ];
 
-//    protected $guarded = ['phone_number'];
+    protected $guarded = ['phone_number'];
 
     /**
      * The attributes that should be hidden for arrays.
