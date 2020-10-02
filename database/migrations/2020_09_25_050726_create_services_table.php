@@ -21,7 +21,7 @@ class CreateServicesTable extends Migration
             $table->string('title');
 //            $table->string('seo_title')->nullable();
 //            $table->text('excerpt');
-            $table->text('body');
+            $table->text('body')->nullable();
             $table->string('image')->nullable();
 //            $table->string('slug')->unique();
 //            $table->text('meta_description');
