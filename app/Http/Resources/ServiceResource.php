@@ -19,7 +19,7 @@ class ServiceResource extends JsonResource
             "id"=> $this->id,
             "category_id"=> $this->category_id,
             "title"=> $this->title,
-            "price"=> $this->price,
+            "price"=> number_format($this->price, 0,",","."),
             "body"=> $this->body,
             "thumbnail" => Voyager::image($this->thumbnail('medium')),
             "image"=> Voyager::image($this->image),

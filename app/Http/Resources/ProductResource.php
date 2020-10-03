@@ -16,15 +16,18 @@ class ProductResource extends JsonResource
     public function toArray($request)
     {
         $images = array();
-        foreach (json_decode($this->images) as $image){
-            $images[] = Voyager::image($image);
+        if($this->images){
+            foreach (json_decode($this->images) as $image){
+                $images[] = Voyager::image($image);
+            }
         }
+
         return [
             "id"=> $this->id,
             "name"=> $this->name,
             "slug"=> $this->slug,
             "details"=> $this->details,
-            "price"=> $this->price,
+            "price"=> number_format($this->price, 0,",","."),
             "description"=> $this->description,
             "thumbnail" => Voyager::image($this->thumbnail('medium')),
             "image"=> Voyager::image($this->image),
