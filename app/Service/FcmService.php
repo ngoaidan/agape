@@ -108,6 +108,8 @@ class FcmService implements NotificationService
                 'json' => $dataPost,
                 'timeout' => 300,
             ]);
+//            Log::info('this is result ' . $result);
+//            dd($result);
 
             $result = $result->getStatusCode() == Response::HTTP_OK;
         } catch (Exception $e) {
