@@ -41,6 +41,11 @@ class CategoryController extends Controller
         return PostResource::collection($posts);
     }
 
+    public function getChildren($id){
+        return $categories = Category::where('id', $id)->first()->children;
+        return CategoryResource::collection($categories);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
