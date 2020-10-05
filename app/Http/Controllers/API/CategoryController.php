@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CategoryNonChildrenResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\CategoryCollection;
 use App\Http\Resources\PostResource;
@@ -37,13 +38,17 @@ class CategoryController extends Controller
 
     public function getPosts($id){
         $posts = Category::findOrFail($id)->posts;
-
         return PostResource::collection($posts);
     }
 
     public function getChildren($id){
-        return $categories = Category::where('id', $id)->first()->children;
+        $categories = Category::where('id', $id)->firstOrFail()->children;
         return CategoryResource::collection($categories);
+    }
+
+    public function getRoot(){
+        $categories = Category::whereNull('parent_id')->get();
+        return CategoryNonChildrenResource::collection($categories);
     }
 
     /**

@@ -42,11 +42,12 @@ Route::group(['namespace' => 'API'], function () {
         Route::apiResource('customers', 'CustomerController');
         Route::apiResource('enterprises', 'EnterpriseController');
 
-        Route::apiResource('categories', 'CategoryController');
+        Route::get('categories/roots', 'CategoryController@getRoot');
         Route::get('categories/{id}/children', 'CategoryController@getChildren');
         Route::get('categories/{id}/services', 'CategoryController@getServices');
         Route::get('categories/{id}/products', 'CategoryController@getProducts');
         Route::get('categories/{id}/posts', 'CategoryController@getPosts');
+        Route::apiResource('categories', 'CategoryController');
 
 //        Route::apiResource('orders', 'OrderController');
         Route::post('orders/product', 'OrderController@store');
@@ -55,6 +56,8 @@ Route::group(['namespace' => 'API'], function () {
         Route::get('orders/service', 'OrderServiceController@index');
 
         Route::apiResource('loans', 'LoanController');
+
+        Route::post('/supports', 'SupportController@store');
     });
 
 });
