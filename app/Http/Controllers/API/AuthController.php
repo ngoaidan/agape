@@ -27,22 +27,35 @@ class AuthController extends Controller
     protected function create(SignupRequest $request)
     {
         $uid = $this->authService->getUIDFromFirebase($request['active_code']);
-        if(is_array($uid) && array_key_exists("error",$uid)){
-            return response($this->authService->failAuthResponse($uid, 401), 401);
-        }
-        $customer = Customer::where('uid', $uid)->first();
+//        if(is_array($uid) && array_key_exists("error",$uid)){
+//            return response($this->authService->failAuthResponse(
+//                ['active_code' => 'OTP đã hết thời hạn']
+//                , 401), 401);
+//        }
+        $uid = is_string($uid) ? $uid : '';
+        $customer = Customer::where('phone_number', $request['phone_number'])->first();
         if(!$customer){
-            $customer = Customer::create([
-                'name' => $request['name'],
-                'phone_number' => $request['phone_number'],
-                'password' => Hash::make($request['password']),
-                'enterprise_id' => $request['enterprise_id'],
-                'identity_number' => $request['identity_number'],
-                'uid' => $uid,
-            ]);
+            try {
+                $customer = Customer::create([
+                    'name' => $request['name'],
+                    'phone_number' => $request['phone_number'],
+                    'password' => Hash::make($request['password']),
+                    'enterprise_id' => $request['enterprise_id'],
+                    'identity_number' => $request['identity_number'],
+                    'uid' => $uid,
+                    'device_token' => $request['device_token'] ?? null,
+                ]);
 
-            $tokenResult = $this->createToken($customer);
-            return response()->json($this->authService->successAuthResponse($tokenResult));
+                $tokenResult = $this->createToken($customer);
+                return response()->json($this->authService->successAuthResponse($tokenResult));
+            }catch (\ErrorException $exception){
+                return response()->json($this->authService->failAuthResponse(
+                   [
+                       'error' => $exception->getMessage()
+                   ]
+                ));
+            }
+
 
         }else{
             return response()->json($this->authService->failAuthResponse(["phone_number" => "Số điện thoại đã được sử dụng!"], JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
@@ -55,6 +68,11 @@ class AuthController extends Controller
     {
         $customer = Customer::Where('phone_number', $request->phone_number)
             ->first();
+
+        if(isset($request['device_token'])){
+            $customer->device_token = $request['device_token'];
+            $customer->save();
+        }
 
         if(!$customer){
             $response = ["phone_number" => "Tài khoản không tồn tại"];
