@@ -29,13 +29,21 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 Route::get('test', function (){
-    $deviceTokens = ["eLMfsnA1eoE:APA91bGZlv20rBGgT2zhUxhfI5gL9IOGWmTbQ7gsupFsxpJwXyxXgLIiqImnK6Ym5PoBc9z5AkbUu9xNW-DvqrvQRISaFDq7Q5waQ9b7AKhQtWs7iAY197kKJb0LLlqcAhrWmTISEejq"];
+    $deviceTokens = \App\Models\Customer::whereNotNull('device_token')->get('device_token')->pluck('device_token');
+    $notify = \App\Models\Notification::create(
+        [
+            'topic' => 'promotion',
+            'title' => 'Chương trình khuyến mãi',
+            'body' => 'Chúc mừng bạn đã nhận được thẻ quà tặng',
+        ]
+    );
+
     PushNotificationJob::dispatch('sendBatchNotification', [
         $deviceTokens,
         [
-            'topicName' => 'birthday',
-            'title' => 'Chúc mứng sinh nhật',
-            'body' => 'Chúc bạn sinh nhật vui vẻ',
+            'topicName' => $notify->topic,
+            'title' => $notify->title,
+            'body' => $notify->body,
         ],
     ]);
 //    $fcmUrl = 'https://fcm.googleapis.com/fcm/send';
