@@ -101,6 +101,23 @@
                             <input type="text" class="form-control" id="product_name" name="name" placeholder="product name" value="{{ $dataTypeContent->name ?? '' }}">
                         </div>
                     </div>
+
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Options</h3>
+                            <div class="panel-actions">
+                                <a class="panel-action voyager-resize-full" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+                            @php
+                                $row = $dataTypeRows->where('field', 'options')->first();
+                            @endphp
+                            {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
+                        </div>
+                    </div>
+
                     <div class="panel">
                         <div class="panel-heading">
                             <h3 class="panel-title">Description</h3>
@@ -134,6 +151,13 @@
                                 {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
                             </div>
                         </div>
+                    </div>
+
+                    <div class="panel-footer">
+                        @section('submit-buttons')
+                            <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
+                        @stop
+                        @yield('submit-buttons')
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -189,12 +213,7 @@
                             <input type="file" name="image">
                         </div>
                     </div>
-                    <div class="panel-footer">
-                        @section('submit-buttons')
-                            <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
-                        @stop
-                        @yield('submit-buttons')
-                    </div>
+
                 </div>
             </div>
             <!-- panel-body -->
