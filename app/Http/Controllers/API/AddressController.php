@@ -10,8 +10,7 @@ use Illuminate\Http\Request;
 class AddressController extends Controller
 {
     public function getProvinces(){
-        return $provinces = Province::with('enterprises')->get();
-        return $enterprises = Enterprise::all()[0]->province;
-        return response()->json($provinces, 200);
+        return $provinces = Province::where('approval', Province::STATUS_ACTIVE)->with('enterprises')->get();
+
     }
 }
