@@ -57,7 +57,10 @@ Route::group(['namespace' => 'API'], function () {
 
         Route::apiResource('loans', 'LoanController');
 
-        Route::post('/supports', 'SupportController@store');
+        Route::post('supports', 'SupportController@store');
+
+        //search
+        Route::post('search', 'SearchController@search');
     });
 
 });

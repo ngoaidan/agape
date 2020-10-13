@@ -344,12 +344,7 @@
                     dom: 'Bfrtip',
                     buttons: [{
                         extend: 'excelHtml5',
-                        text: 'Data export',
-                        customize: function (xlsx) {
-                            var sheet = xlsx.xl.worksheets['sheet1.xml'];
-
-
-                        }
+                        text: 'Data export'
                     }]
                 });
             @else
