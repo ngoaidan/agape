@@ -1,58 +1,12 @@
 @php
     $edit = !is_null($dataTypeContent->getKey());
-     $add  = is_null($dataTypeContent->getKey());
-
+    $add  = is_null($dataTypeContent->getKey());
 @endphp
 
 @extends('voyager::master')
 
 @section('css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <style>
-        .panel .mce-panel {
-            border-left-color: #fff;
-            border-right-color: #fff;
-        }
-
-        .panel .mce-toolbar,
-        .panel .mce-statusbar {
-            padding-left: 20px;
-        }
-
-        .panel .mce-edit-area,
-        .panel .mce-edit-area iframe,
-        .panel .mce-edit-area iframe html {
-            padding: 0 10px;
-            min-height: 350px;
-        }
-
-        .mce-content-body {
-            color: #555;
-            font-size: 14px;
-        }
-
-        .panel.is-fullscreen .mce-statusbar {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            z-index: 200000;
-        }
-
-        .panel.is-fullscreen .mce-tinymce {
-            height:100%;
-        }
-
-        .panel.is-fullscreen .mce-edit-area,
-        .panel.is-fullscreen .mce-edit-area iframe,
-        .panel.is-fullscreen .mce-edit-area iframe html {
-            height: 100%;
-            position: absolute;
-            width: 99%;
-            overflow-y: scroll;
-            overflow-x: hidden;
-            min-height: 100%;
-        }
-    </style>
 @stop
 
 @section('page_title', __('voyager::generic.'.($edit ? 'edit' : 'add')).' '.$dataType->getTranslatedAttribute('display_name_singular'))
@@ -67,118 +21,200 @@
 
 @section('content')
     <div class="page-content edit-add container-fluid">
-        <form class="form-edit-add" role="form" action="@if($edit){{ route('voyager.'.$dataType->slug.'.update', $dataTypeContent->id) }}@else{{ route('voyager.'.$dataType->slug.'.store') }}@endif" method="POST" enctype="multipart/form-data">
-            <!-- PUT Method if we are editing -->
-            @if($edit)
-                {{ method_field("PUT") }}
-            @endif
-            {{ csrf_field() }}
-
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="panel">
-                        @if (count($errors) > 0)
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
-                        <div class="panel-heading">
-                            <h3 class="panel-title">
-                                <i class="voyager-character"></i>Prodcut
-                                <span class="panel-desc"> Product Name</span>
-                            </h3>
-                            <div class="panel-actions">
-                                <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <input type="text" class="form-control" id="product_name" name="product_name" placeholder="product name" value="{{ $dataTypeContent->product_name ?? '' }}">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-4">
-                    <div class="panel panel panel-bordered panel-warning">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="icon wb-clipboard"></i>Product Details</h3>
-                            <div class="panel-actions">
-                                <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <label for="short_description">Short Description</label>
-                                <textarea class="form-control" name="short_description">{{ $dataTypeContent->short_description ?? '' }}</textarea>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <label for="slug">Slug</label>
-
-                                <input type="text" class="form-control" id="slug" name="slug"
-                                       placeholder="slug"
-                                       {!! isFieldSlugAutoGenerator($dataType, $dataTypeContent, "slug") !!}
-                                       value="{{ $dataTypeContent->slug ?? '' }}">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-bordered">
+                    <div class="panel panel-bordered" style="padding-bottom:5px;">
+                        <!-- form start -->
+                        @foreach($dataType->readRows as $row)
+                            @php
+                                if ($dataTypeContent->{$row->field.'_read'}) {
+                                    $dataTypeContent->{$row->field} = $dataTypeContent->{$row->field.'_read'};
+                                }
+                            @endphp
+                            <div class="panel-heading" style="border-bottom:0;">
+                                <h3 class="panel-title">{{ $row->getTranslatedAttribute('display_name') }}</h3>
                             </div>
 
-                            <div class="form-group">
-                                <label for="status">Status</label>
-                                <select class="form-control" name="status">
-                                    <option value="inStock"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'inStock') selected="selected"@endif>Còn Món</option>
-                                    <option value="outStock"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'outStock') selected="selected"@endif>Hết Món</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="featured">Featured</label>
-                                <input type="checkbox" name="featured"@if(isset($dataTypeContent->featured) && $dataTypeContent->featured) checked="checked"@endif>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-bordered panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="icon wb-image"></i>Image</h3>
-                            <div class="panel-actions">
-                                <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            @if(isset($dataTypeContent->image))
-                                <img src="{{ filter_var($dataTypeContent->image, FILTER_VALIDATE_URL) ? $dataTypeContent->image : Voyager::image( $dataTypeContent->image ) }}" style="width:100%" />
+                            <div class="panel-body" style="padding-top:0;">
+                                @if (isset($row->details->view))
+                                    @include($row->details->view, ['row' => $row, 'dataType' => $dataType, 'dataTypeContent' => $dataTypeContent, 'content' => $dataTypeContent->{$row->field}, 'action' => 'read', 'view' => 'read', 'options' => $row->details])
+                                @elseif($row->type == "image")
+                                    <img class="img-responsive"
+                                         src="{{ filter_var($dataTypeContent->{$row->field}, FILTER_VALIDATE_URL) ? $dataTypeContent->{$row->field} : Voyager::image($dataTypeContent->{$row->field}) }}">
+                                @elseif($row->type == 'multiple_images')
+                                    @if(json_decode($dataTypeContent->{$row->field}))
+                                        @foreach(json_decode($dataTypeContent->{$row->field}) as $file)
+                                            <img class="img-responsive"
+                                                 src="{{ filter_var($file, FILTER_VALIDATE_URL) ? $file : Voyager::image($file) }}">
+                                        @endforeach
+                                    @else
+                                        <img class="img-responsive"
+                                             src="{{ filter_var($dataTypeContent->{$row->field}, FILTER_VALIDATE_URL) ? $dataTypeContent->{$row->field} : Voyager::image($dataTypeContent->{$row->field}) }}">
+                                    @endif
+                                @elseif($row->type == 'relationship')
+                                    @include('voyager::formfields.relationship', ['view' => 'read', 'options' => $row->details])
+                                @elseif($row->type == 'select_dropdown' && property_exists($row->details, 'options') &&
+                                        !empty($row->details->options->{$dataTypeContent->{$row->field}})
+                                )
+                                    <?php echo $row->details->options->{$dataTypeContent->{$row->field}};?>
+                                @elseif($row->type == 'select_multiple')
+                                    @if(property_exists($row->details, 'relationship'))
+
+                                        @foreach(json_decode($dataTypeContent->{$row->field}) as $item)
+                                            {{ $item->{$row->field}  }}
+                                        @endforeach
+
+                                    @elseif(property_exists($row->details, 'options'))
+                                        @if (!empty(json_decode($dataTypeContent->{$row->field})))
+                                            @foreach(json_decode($dataTypeContent->{$row->field}) as $item)
+                                                @if (@$row->details->options->{$item})
+                                                    {{ $row->details->options->{$item} . (!$loop->last ? ', ' : '') }}
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            {{ __('voyager::generic.none') }}
+                                        @endif
+                                    @endif
+                                @elseif($row->type == 'date' || $row->type == 'timestamp')
+                                    @if ( property_exists($row->details, 'format') && !is_null($dataTypeContent->{$row->field}) )
+                                        {{ \Carbon\Carbon::parse($dataTypeContent->{$row->field})->formatLocalized($row->details->format) }}
+                                    @else
+                                        {{ $dataTypeContent->{$row->field} }}
+                                    @endif
+                                @elseif($row->type == 'checkbox')
+                                    @if(property_exists($row->details, 'on') && property_exists($row->details, 'off'))
+                                        @if($dataTypeContent->{$row->field})
+                                            <span class="label label-info">{{ $row->details->on }}</span>
+                                        @else
+                                            <span class="label label-primary">{{ $row->details->off }}</span>
+                                        @endif
+                                    @else
+                                        {{ $dataTypeContent->{$row->field} }}
+                                    @endif
+                                @elseif($row->type == 'color')
+                                    <span class="badge badge-lg" style="background-color: {{ $dataTypeContent->{$row->field} }}">{{ $dataTypeContent->{$row->field} }}</span>
+                                @elseif($row->type == 'coordinates')
+                                    @include('voyager::partials.coordinates')
+                                @elseif($row->type == 'rich_text_box')
+                                    @include('voyager::multilingual.input-hidden-bread-read')
+                                    {!! $dataTypeContent->{$row->field} !!}
+                                @elseif($row->type == 'file')
+                                    @if(json_decode($dataTypeContent->{$row->field}))
+                                        @foreach(json_decode($dataTypeContent->{$row->field}) as $file)
+                                            <a href="{{ Storage::disk(config('voyager.storage.disk'))->url($file->download_link) ?: '' }}">
+                                                {{ $file->original_name ?: '' }}
+                                            </a>
+                                            <br/>
+                                        @endforeach
+                                    @else
+                                        <a href="{{ Storage::disk(config('voyager.storage.disk'))->url($row->field) ?: '' }}">
+                                            {{ __('voyager::generic.download') }}
+                                        </a>
+                                    @endif
+                                @else
+                                    @include('voyager::multilingual.input-hidden-bread-read')
+                                    <p>{{ $dataTypeContent->{$row->field} }}</p>
+                                @endif
+                            </div><!-- panel-body -->
+                            @if(!$loop->last)
+                                <hr style="margin:0;">
                             @endif
-                            <input type="file" name="image">
-                        </div>
-                    </div>
-                    <div class="panel-footer">
-                        @section('submit-buttons')
-                            <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
-                        @stop
-                        @yield('submit-buttons')
+                        @endforeach
+
                     </div>
                 </div>
             </div>
-            <!-- panel-body -->
+            <div class="col-md-4">
 
+                <div class="panel panel-bordered">
+                    <!-- form start -->
+                    <form role="form"
+                            class="form-edit-add"
+                            action="{{ $edit ? route('voyager.'.$dataType->slug.'.update', $dataTypeContent->getKey()) : route('voyager.'.$dataType->slug.'.store') }}"
+                            method="POST" enctype="multipart/form-data">
+                        <!-- PUT Method if we are editing -->
+                        @if($edit)
+                            {{ method_field("PUT") }}
+                        @endif
 
-        </form>
+                        <!-- CSRF TOKEN -->
+                        {{ csrf_field() }}
 
-        <iframe id="form_target" name="form_target" style="display:none"></iframe>
-        <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"
-              enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
-            <input name="image" id="upload_file" type="file"
-                   onchange="$('#my_form').submit();this.value='';">
-            <input type="hidden" name="type_slug" id="type_slug" value="{{ $dataType->slug }}">
-            {{ csrf_field() }}
-        </form>
+                        <div class="panel-body">
 
-    </div>
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
-    </div>
-    </div>
+                            <!-- Adding / Editing -->
+                            @php
+                                $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
+                            @endphp
+
+                            @foreach($dataTypeRows as $row)
+                                <!-- GET THE DISPLAY OPTIONS -->
+                                @php
+                                    $display_options = $row->details->display ?? NULL;
+                                    if ($dataTypeContent->{$row->field.'_'.($edit ? 'edit' : 'add')}) {
+                                        $dataTypeContent->{$row->field} = $dataTypeContent->{$row->field.'_'.($edit ? 'edit' : 'add')};
+                                    }
+                                @endphp
+                                @if (isset($row->details->legend) && isset($row->details->legend->text))
+                                    <legend class="text-{{ $row->details->legend->align ?? 'center' }}" style="background-color: {{ $row->details->legend->bgcolor ?? '#f0f0f0' }};padding: 5px;">{{ $row->details->legend->text }}</legend>
+                                @endif
+
+                                <div class="form-group @if($row->type == 'hidden') hidden @endif col-md-{{ $display_options->width ?? 12 }} {{ $errors->has($row->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
+                                    {{ $row->slugify }}
+                                    <label class="control-label" for="name">{{ $row->getTranslatedAttribute('display_name') }}</label>
+                                    @include('voyager::multilingual.input-hidden-bread-edit-add')
+                                    @if (isset($row->details->view))
+                                        @include($row->details->view, ['row' => $row, 'dataType' => $dataType, 'dataTypeContent' => $dataTypeContent, 'content' => $dataTypeContent->{$row->field}, 'action' => ($edit ? 'edit' : 'add'), 'view' => ($edit ? 'edit' : 'add'), 'options' => $row->details])
+                                    @elseif ($row->type == 'relationship')
+                                        @include('voyager::formfields.relationship', ['options' => $row->details])
+                                    @else
+                                        {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
+                                    @endif
+
+                                    @foreach (app('voyager')->afterFormFields($row, $dataType, $dataTypeContent) as $after)
+                                        {!! $after->handle($row, $dataType, $dataTypeContent) !!}
+                                    @endforeach
+                                    @if ($errors->has($row->field))
+                                        @foreach ($errors->get($row->field) as $error)
+                                            <span class="help-block">{{ $error }}</span>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            @endforeach
+
+                        </div><!-- panel-body -->
+
+                        <div class="panel-footer">
+                            @section('submit-buttons')
+                                <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
+                            @stop
+                            @yield('submit-buttons')
+                        </div>
+                    </form>
+
+                    <iframe id="form_target" name="form_target" style="display:none"></iframe>
+                    <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"
+                            enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
+                        <input name="image" id="upload_file" type="file"
+                                 onchange="$('#my_form').submit();this.value='';">
+                        <input type="hidden" name="type_slug" id="type_slug" value="{{ $dataType->slug }}">
+                        {{ csrf_field() }}
+                    </form>
+
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="modal fade modal-danger" id="confirm_delete_modal">
@@ -211,39 +247,43 @@
         var $file;
 
         function deleteHandler(tag, isMulti) {
-            return function() {
-                $file = $(this).siblings(tag);
+          return function() {
+            $file = $(this).siblings(tag);
 
-                params = {
-                    slug:   '{{ $dataType->slug }}',
-                    filename:  $file.data('file-name'),
-                    id:     $file.data('id'),
-                    field:  $file.parent().data('field-name'),
-                    multi: isMulti,
-                    _token: '{{ csrf_token() }}'
-                }
+            params = {
+                slug:   '{{ $dataType->slug }}',
+                filename:  $file.data('file-name'),
+                id:     $file.data('id'),
+                field:  $file.parent().data('field-name'),
+                multi: isMulti,
+                _token: '{{ csrf_token() }}'
+            }
 
-                $('.confirm_delete_name').text(params.filename);
-                $('#confirm_delete_modal').modal('show');
-            };
+            $('.confirm_delete_name').text(params.filename);
+            $('#confirm_delete_modal').modal('show');
+          };
         }
 
         $('document').ready(function () {
-            $('#slug').slugify();
-
             $('.toggleswitch').bootstrapToggle();
 
             //Init datepicker for date fields if data-datepicker attribute defined
             //or if browser does not handle date inputs
             $('.form-group input[type=date]').each(function (idx, elt) {
-                if (elt.type != 'date' || elt.hasAttribute('data-datepicker')) {
+                if (elt.hasAttribute('data-datepicker')) {
                     elt.type = 'text';
                     $(elt).datetimepicker($(elt).data('datepicker'));
+                } else if (elt.type != 'date') {
+                    elt.type = 'text';
+                    $(elt).datetimepicker({
+                        format: 'L',
+                        extraFormats: [ 'YYYY-MM-DD' ]
+                    }).datetimepicker($(elt).data('datepicker'));
                 }
             });
 
             @if ($isModelTranslatable)
-            $('.side-body').multilingual({"editing": true});
+                $('.side-body').multilingual({"editing": true});
             @endif
 
             $('.side-body input[data-slug-origin]').each(function(i, el) {
