@@ -69,11 +69,6 @@ class AuthController extends Controller
         $customer = Customer::Where('phone_number', $request->phone_number)
             ->first();
 
-        if(isset($request['device_token'])){
-            $customer->device_token = $request['device_token'];
-            $customer->save();
-        }
-
         if(!$customer){
             $response = ["phone_number" => "Tài khoản không tồn tại"];
             return response($this->authService->failAuthResponse($response), 403);
@@ -81,6 +76,10 @@ class AuthController extends Controller
 
         if (Hash::check($request->password, $customer->password)) {
             $tokenResult = $this->createToken($customer);
+            if(isset($request['device_token'])){
+                $customer->device_token = $request['device_token'];
+                $customer->save();
+            }
             return response()->json($this->authService->successAuthResponse($tokenResult));
 
         } else {
