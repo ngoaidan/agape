@@ -91,7 +91,7 @@ class CustomerController extends Controller
 
     public function uploadAvatar(AvatarRequest $request){
 
-        $customer = Customer::find(Auth::id());
+        return $customer = Customer::find(Auth::id());
 
         if ($request->hasfile('avatar')) {
             $customer->uploadImage(request()->file('avatar'), 'avatar');
