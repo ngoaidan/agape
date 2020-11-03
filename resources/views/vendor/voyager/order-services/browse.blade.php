@@ -33,9 +33,6 @@
             @endif
         @endforeach
         @include('voyager::multilingual.language-selector')
-        <a href="#" class="btn btn-info btn-add-new" onclick="exportToExcel()">
-            <i class="voyager-categories"></i> <span>Export</span>
-        </a>
     </div>
 @stop
 
@@ -254,20 +251,27 @@
                                             </td>
                                         @endforeach
                                         <td class="no-sort no-click bread-actions">
-{{--                                            @foreach($actions as $action)--}}
-{{--                                                @if ($action->shouldActionDisplayOnDataType())--}}
-{{--                                                    @include('voyager::bread.partials.actions', ['action' => $action])--}}
-{{--                                                @endif--}}
-{{--                                            @endforeach--}}
-{{--                                            <form action="{{route('customers.publish')}}" enctype="multipart/form-data">--}}
-{{--                                                <input type="hidden" value="{{$dataTypeContent->status}}" name="id">--}}
-{{--                                                <button class="btn btn-success" @if(isset($dataTypeContent->status) && $dataTypeContent->status=="ACCEPT") type="submit"@endif></button>--}}
-{{--                                            </form>--}}
                                             @can('edit', $data)
-                                                <a href="{{ route($dataType->slug.'.publish', array("id"=>$data->{$data->getKeyName()})) }}" class="btn btn-sm btn-primary pull-right edit">
-                                                    <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Change Status</span>
-                                                </a>
-                                            @endcan
+                                            <form class="form-edit-add"
+                                                      role="form"
+                                                      action="{{ route($dataType->slug.'.updated',array("id"=>$data->{$data->getKeyName()})) }}"
+                                                      method="post"
+                                                      enctype="multipart/form-data">
+                                                {{ csrf_field() }}
+                                                    <div class="form-group">
+                                                        <select class="form-control" name="status">
+                                                            <option value="2"@if(isset($dataTypeContent->status) && $dataTypeContent->status == '2') selected="selected"@endif>New Order</option>
+                                                            <option value="3"@if(isset($dataTypeContent->status) && $dataTypeContent->status == '3') selected="selected"@endif>In Process</option>
+                                                            <option value="1"@if(isset($dataTypeContent->status) && $dataTypeContent->status == '1') selected="selected"@endif>Completed</option>
+                                                            <option value="0"@if(isset($dataTypeContent->status) && $dataTypeContent->status == '0') selected="selected"@endif>Cancel</option>
+                                                        </select>
+                                                    </div>
+                                                    @section('submit-buttons')
+                                                        <button type="submit" class="btn btn-primary save"> <i class="voyager-edit">Change Status</i></button>
+                                                @stop
+                                                @yield('submit-buttons')
+                                            </form>
+                                                @endcan
                                         </td>
                                     </tr>
                                     @endforeach
@@ -325,16 +329,6 @@
 @if(!$dataType->server_side && config('dashboard.data_tables.responsive'))
     <link rel="stylesheet" href="{{ voyager_asset('lib/css/responsive.dataTables.min.css') }}">
 @endif
-    <style>
-        .buttons-excel{
-            background: #2ecc71;
-            color: #fff;
-            border: 0;
-            border-radius: 3px;
-            opacity: .9;
-            padding: 6px 15px;
-        }
-    </style>
 @stop
 
 @section('javascript')
@@ -342,20 +336,19 @@
     @if(!$dataType->server_side && config('dashboard.data_tables.responsive'))
         <script src="{{ voyager_asset('lib/js/dataTables.responsive.min.js') }}"></script>
     @endif
-
-    <script type="application/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
-    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script type="application/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
     <script>
         $(document).ready(function () {
             @if (!$dataType->server_side)
-                var table = $('#dataTable').DataTable({
-                    dom: 'Bfrtip',
-                    buttons: [{
-                        extend: 'excelHtml5',
-                        text: 'Data export'
-                    }]
-                });
+                var table = $('#dataTable').DataTable({!! json_encode(
+                    array_merge([
+                        "order" => $orderColumn,
+                        "language" => __('voyager::datatable'),
+                        "columnDefs" => [
+                            ['targets' => 'dt-not-orderable', 'searchable' =>  false, 'orderable' => false],
+                        ],
+                    ],
+                    config('voyager.dashboard.data_tables', []))
+                , true) !!});
             @else
                 $('#search-input select').select2({
                     minimumResultsForSearch: Infinity
@@ -413,6 +406,4 @@
             $('.selected_ids').val(ids);
         });
     </script>
-
-
 @stop
