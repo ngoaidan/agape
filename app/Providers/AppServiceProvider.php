@@ -28,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Voyager::addAction(\App\Actions\PublishAction::class);
         Voyager::addAction(\App\Actions\SupportAction::class);
+        JsonResource::withoutWrapping();
     }
 }

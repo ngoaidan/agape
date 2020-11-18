@@ -20,19 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/API/IndustrialController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/AddressResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/EnterpriseResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/IndustrialResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/IndustrialArea.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/passport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_18_040659_create_industrial_areas_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/AddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/AddressController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Enterprise.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Enterprise.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Province.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Province.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +195,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../crawl" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -314,6 +302,8 @@
       <workItem from="1605683910765" duration="1794000" />
       <workItem from="1605685722240" duration="1800000" />
       <workItem from="1605687547221" duration="1796000" />
+      <workItem from="1605689423187" duration="1755000" />
+      <workItem from="1605691877753" duration="68000" />
     </task>
     <servers />
   </component>
@@ -341,10 +331,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.864@0.0.1536.864" timestamp="1605686006562" />
-    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1605686508503">
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1605691942912">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1605686508503" />
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1605691942912" />
     <state x="604" y="356" key="NewPhpFileDialog" timestamp="1604373414864">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
