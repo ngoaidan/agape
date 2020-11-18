@@ -29,7 +29,10 @@ class Province extends Model
         return $listStatus[$statusId] ?? null;
     }
 
+    public function industrial_areas(){
+        return $this->hasMany(IndustrialArea::class,'matp', 'matp');
+    }
     public function enterprises(){
-        return $this->hasMany(Enterprise::class, 'matp', 'matp');
+        return $this->hasMany(Enterprise::class,'matp', 'matp');
     }
 }

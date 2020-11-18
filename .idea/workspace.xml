@@ -20,10 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/agape.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/agape.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/API/IndustrialController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/AddressResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/EnterpriseResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/IndustrialResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/IndustrialArea.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/passport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_18_040659_create_industrial_areas_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/AddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/AddressController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Enterprise.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Enterprise.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Province.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Province.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,6 +199,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1jXEhHmPsSOH0CTyvhVuYb0PDZt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -197,17 +207,17 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Resources" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\agape\app\Http\Resources" />
       <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager\posts" />
       <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager\supports" />
       <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager\order-services\new-orders" />
       <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager\orders\new-orders" />
-      <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager\orders" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\agape\app\Http\Controllers" />
@@ -296,6 +306,14 @@
       <workItem from="1604997449268" duration="1807000" />
       <workItem from="1604999383187" duration="1656000" />
       <workItem from="1605001218258" duration="898000" />
+      <workItem from="1605671569895" duration="1842000" />
+      <workItem from="1605673944901" duration="1463000" />
+      <workItem from="1605675708995" duration="916000" />
+      <workItem from="1605679448044" duration="1496000" />
+      <workItem from="1605682133483" duration="1752000" />
+      <workItem from="1605683910765" duration="1794000" />
+      <workItem from="1605685722240" duration="1800000" />
+      <workItem from="1605687547221" duration="1796000" />
     </task>
     <servers />
   </component>
@@ -319,14 +337,14 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="382" y="124" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1604040637430" />
-    <state x="499" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604379290491">
+    <state x="499" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605686006562">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="499" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.864@0.0.1536.864" timestamp="1604379290491" />
-    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1604991616236">
+    <state x="499" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.864@0.0.1536.864" timestamp="1605686006562" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1605686508503">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1604991616236" />
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1605686508503" />
     <state x="604" y="356" key="NewPhpFileDialog" timestamp="1604373414864">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
