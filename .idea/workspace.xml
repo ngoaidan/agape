@@ -20,15 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderServiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderServiceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/agape.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/agape.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/voyager/customers/browse.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/voyager/customers/browse.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/voyager/orders/edit-add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/voyager/orders/edit-add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/voyager/products/browse.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/voyager/products/browse.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +186,7 @@
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jXEhHmPsSOH0CTyvhVuYb0PDZt" />
@@ -201,7 +197,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FoodKhang" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -269,7 +265,37 @@
       <workItem from="1604378649793" duration="1686000" />
       <workItem from="1604383569654" duration="1721000" />
       <workItem from="1604385379909" duration="1794000" />
-      <workItem from="1604387190828" duration="1220000" />
+      <workItem from="1604387190828" duration="1798000" />
+      <workItem from="1604389130565" duration="222000" />
+      <workItem from="1604456183328" duration="1498000" />
+      <workItem from="1604458369895" duration="651000" />
+      <workItem from="1604460334322" duration="762000" />
+      <workItem from="1604470350958" duration="1379000" />
+      <workItem from="1604472261969" duration="598000" />
+      <workItem from="1604474166161" duration="587000" />
+      <workItem from="1604542658432" duration="1217000" />
+      <workItem from="1604545352609" duration="585000" />
+      <workItem from="1604551349428" duration="1006000" />
+      <workItem from="1604557096461" duration="562000" />
+      <workItem from="1604648753413" duration="440000" />
+      <workItem from="1604888775089" duration="829000" />
+      <workItem from="1604890687350" duration="1593000" />
+      <workItem from="1604892502718" duration="1588000" />
+      <workItem from="1604894328627" duration="1862000" />
+      <workItem from="1604896600567" duration="1502000" />
+      <workItem from="1604898639549" duration="598000" />
+      <workItem from="1604902681545" duration="1080000" />
+      <workItem from="1604904914694" duration="597000" />
+      <workItem from="1604906908131" duration="884000" />
+      <workItem from="1604908742106" duration="599000" />
+      <workItem from="1604977294234" duration="1470000" />
+      <workItem from="1604979080195" duration="768000" />
+      <workItem from="1604981329052" duration="1674000" />
+      <workItem from="1604983143895" duration="1005000" />
+      <workItem from="1604991592225" duration="23000" />
+      <workItem from="1604997449268" duration="1807000" />
+      <workItem from="1604999383187" duration="1656000" />
+      <workItem from="1605001218258" duration="898000" />
     </task>
     <servers />
   </component>
@@ -297,10 +323,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.864@0.0.1536.864" timestamp="1604379290491" />
-    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1604375496091">
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1604991616236">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1604375496091" />
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1604991616236" />
     <state x="604" y="356" key="NewPhpFileDialog" timestamp="1604373414864">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
