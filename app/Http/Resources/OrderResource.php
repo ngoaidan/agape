@@ -23,7 +23,7 @@ class OrderResource extends JsonResource
         return [
 //            "status"=> $this->statusName(),
             "category" => $category->name,
-            "product" => $this->product->name,
+            "name" => $this->product->name,
             "icon" => $category->icon,
 //            "billing_total"=> $this->billing_total,
 //            "cumulative_points"=> $this->cumulative_points,

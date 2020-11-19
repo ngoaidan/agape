@@ -13,7 +13,7 @@ class Customer extends Authenticatable
     use HasImageUploads;
 
     protected $fillable = [
-        'name', 'enterprise_id', 'identity_number', 'password', 'uid', 'sex', 'birth', 'matp', 'phone_number', 'device_token'
+        'name', 'enterprise_id', 'identity_number', 'password', 'uid', 'sex', 'birth', 'matp', 'phone_number', 'device_token','makcn'
     ];
 
     protected $guarded = ['phone_number'];
@@ -66,8 +66,8 @@ class Customer extends Authenticatable
     function province(){
         return $this->belongsTo(Province::class, 'matp');
     }
-    public function industrial(){
-        return $this->belongsTo(IndustrialArea::class, 'makcn');
+    function industrial(){
+        return $this->belongsTo(IndustrialArea::class, 'makcn','makcn');
     }
 
 

@@ -48,8 +48,8 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        $customerId = Auth::id();
-        $customer = Customer::where('id',$customerId)->with('industrial')->first();
+        $id = Auth::id();
+        $customer = Customer::where('id',$id)->with('enterprise')->first();
         return new CustomerResource($customer);
     }
 
@@ -58,7 +58,7 @@ class CustomerController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request)
     {
@@ -76,6 +76,7 @@ class CustomerController extends Controller
                 'birth' => $request['birth'],
                 'sex' => $request['sex'],
                 'matp' => $request['matp'],
+                'makcn' => $request['makcn'],
                 'enterprise_id' => $request['enterprise_id'],
                 'identity_number' => $request['identity_number'],
             ]);

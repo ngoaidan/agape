@@ -22,7 +22,7 @@ class OrderServiceResource extends JsonResource
         return [
             //            "status"=> $this->statusName(),
             "category" => $category->name,
-            "service" => $this->service->title,
+            "name" => $this->service->title,
             "service_id" => $this->service->id,
             "icon" => $category->icon,
 //            "billing_total"=> $this->billing_total,

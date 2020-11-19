@@ -26,7 +26,7 @@ class CustomerResource extends JsonResource
             "birth" => Carbon::parse($this->birth)->format('d-m-Y'),
             "tp_live" => $this->province->matp ?? null,
             "industrial_area"=>$this->industrial->makcn ?? null,
-            "enterprise"=> $this->enterprise,
+            "enterprise"=> $this->enterprise->id ?? null,
             "created_at"=> Carbon::parse($this->created_at)->format('d-m-Y'),
         ];
     }

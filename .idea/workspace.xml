@@ -22,13 +22,8 @@
     <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/CustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AddressResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AddressResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Resources/CustomerResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/CustomerResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/EnterpriseResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/EnterpriseResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/IndustrialResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/IndustrialResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Customer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Enterprise.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Enterprise.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/IndustrialArea.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/IndustrialArea.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -352,5 +347,9 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="604" y="356" key="NewPhpFileDialog/0.0.1536.864@0.0.1536.864" timestamp="1604373414864" />
+    <state x="593" y="135" key="RollbackChangesDialog" timestamp="1605766185668">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="593" y="135" key="RollbackChangesDialog/0.0.1536.864@0.0.1536.864" timestamp="1605766185668" />
   </component>
 </project>
