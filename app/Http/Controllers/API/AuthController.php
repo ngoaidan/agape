@@ -40,6 +40,8 @@ class AuthController extends Controller
                     'name' => $request['name'],
                     'phone_number' => $request['phone_number'],
                     'password' => Hash::make($request['password']),
+                    'matp' => $request['matp'],
+                    'makcn' => $request['makcn'],
                     'enterprise_id' => $request['enterprise_id'],
                     'identity_number' => $request['identity_number'],
                     'uid' => $uid,
