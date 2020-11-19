@@ -44,12 +44,12 @@ class CustomerController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return CustomerResource
      */
     public function show($id)
     {
         $customerId = Auth::id();
-        $customer = Customer::where('id',$customerId)->with('enterprise')->first();
+        $customer = Customer::where('id',$customerId)->with('industrial')->first();
         return new CustomerResource($customer);
     }
 

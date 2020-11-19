@@ -15,9 +15,8 @@ class AddressResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'=>$this->id,
-            'type'=>$this->type,
             'name' => $this->name,
+            'type'=>$this->type,
             'matp' => $this->matp,
             'industrial_areas'=>IndustrialResource::collection($this->industrial_areas),
         ];

@@ -17,8 +17,9 @@ class IndustrialResource extends JsonResource
         return [
             'id'=>$this->id,
             'code'=>$this->code,
-            'name' => $this->name,
             'matp' => $this->matp,
+            'makcn'=>$this->makcn,
+            'name' => $this->name,
             'enterprises'=>EnterpriseResource::collection($this->enterprises),
         ];
     }

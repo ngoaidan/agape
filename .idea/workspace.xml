@@ -21,6 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/CustomerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AddressResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AddressResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CustomerResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/CustomerResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/EnterpriseResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/EnterpriseResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/IndustrialResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/IndustrialResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Enterprise.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Enterprise.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/IndustrialArea.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/IndustrialArea.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +203,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../crawl" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -304,6 +312,11 @@
       <workItem from="1605687547221" duration="1796000" />
       <workItem from="1605689423187" duration="1755000" />
       <workItem from="1605691877753" duration="68000" />
+      <workItem from="1605692127552" duration="1373000" />
+      <workItem from="1605752708294" duration="11000" />
+      <workItem from="1605754326588" duration="30000" />
+      <workItem from="1605756447734" duration="1684000" />
+      <workItem from="1605758186129" duration="1320000" />
     </task>
     <servers />
   </component>

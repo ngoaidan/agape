@@ -66,6 +66,9 @@ class Customer extends Authenticatable
     function province(){
         return $this->belongsTo(Province::class, 'matp');
     }
+    public function industrial(){
+        return $this->belongsTo(IndustrialArea::class, 'makcn');
+    }
 
 
 }

@@ -9,6 +9,6 @@ class IndustrialArea extends Model
     protected $table = 'industrial_areas';
     protected $guarded = [];
     public function enterprises(){
-        return $this->hasMany(Enterprise::class, 'code', 'code');
+        return $this->hasMany(Enterprise::class, 'makcn', 'makcn');
     }
 }
