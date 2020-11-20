@@ -15,7 +15,7 @@ class AddFieldsToCustomersTable extends Migration
     {
         Schema::table('customers', function (Blueprint $table) {
             $table->string('identity_number', 11)->after('phone_number');
-            $table->bigInteger('enterprise_id')->unsigned()->index()->after('identity_number');
+            $table->bigInteger('enterprise_id')->unsigned()->nullable()->index()->after('identity_number');
 //            $table->foreign('enterprise_id')->references('id')->on('enterprises');
         });
     }
