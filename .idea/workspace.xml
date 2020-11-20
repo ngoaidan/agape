@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_10_053914_add_fields_to_customers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_10_053914_add_fields_to_customers_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,6 +315,8 @@
       <workItem from="1605774053536" duration="45000" />
       <workItem from="1605775712922" duration="82000" />
       <workItem from="1605775933146" duration="876000" />
+      <workItem from="1605843606286" duration="581000" />
+      <workItem from="1605844203014" duration="1493000" />
     </task>
     <servers />
   </component>
