@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -317,6 +316,13 @@
       <workItem from="1605775933146" duration="876000" />
       <workItem from="1605843606286" duration="581000" />
       <workItem from="1605844203014" duration="1493000" />
+      <workItem from="1605857882906" duration="657000" />
+      <workItem from="1605860177417" duration="20000" />
+      <workItem from="1605860376020" duration="607000" />
+      <workItem from="1605865360096" duration="12000" />
+      <workItem from="1606279115093" duration="442000" />
+      <workItem from="1606279633563" duration="1731000" />
+      <workItem from="1606281474933" duration="596000" />
     </task>
     <servers />
   </component>
@@ -344,10 +350,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.864@0.0.1536.864" timestamp="1605686006562" />
-    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1605767851377">
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1605865369123">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1605767851377" />
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1605865369123" />
     <state x="604" y="356" key="NewPhpFileDialog" timestamp="1604373414864">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

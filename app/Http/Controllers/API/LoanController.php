@@ -45,7 +45,7 @@ class LoanController extends Controller
                     [
                         'errors' => ['error' => 'Bạn đang trong một gói vay khác!']
                     ]
-                ], 200);
+                ], 500);
             }
         }
         $newLoan = Loan::create([
