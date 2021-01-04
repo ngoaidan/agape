@@ -64,7 +64,7 @@ class CustomerController extends Controller
     {
         $request->validate([
             'name' => ['string', 'max:255'],
-            'identity_number' => ['numeric', 'digits_between:6,11'],
+            'identity_number' => ['numeric', 'digits_between:9,12'],
             'enterprise_id' => ['numeric'],
         ]);
         $request['birth'] = Carbon::parse($request['birth'])->format('Y-m-d');

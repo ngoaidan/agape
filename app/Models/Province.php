@@ -35,4 +35,7 @@ class Province extends Model
     public function enterprises(){
         return $this->hasMany(Enterprise::class,'matp', 'matp');
     }
+    public function loans(){
+        return $this->belongsTo(Loan::class, 'matp');
+    }
 }
