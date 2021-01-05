@@ -53,6 +53,7 @@ class LoanController extends Controller
             'loan' => $request['loan'],
             'term' => $request['term'],
             'salary' => $request['salary'],
+            'status'=> 1 ,
             'matp' => $request['matp'],
         ]);
         return response()->json($newLoan, 200);
