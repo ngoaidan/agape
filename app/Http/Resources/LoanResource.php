@@ -23,6 +23,7 @@ class LoanResource extends JsonResource
             "term"=> $this->term,
             "salary"=> $this->salary,
             "matp"=> $this->province,
+            "status"=>$this->status,
             "created_at"=> Carbon::parse($this->created_at)->format('d-m-Y'),
         ];
     }
