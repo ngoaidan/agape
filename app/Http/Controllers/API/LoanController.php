@@ -37,10 +37,36 @@ class LoanController extends Controller
         $customerId = Auth::id();
         $loans = Loan::where('customer_id', '=', $customerId)->get();
         foreach ($loans as $loan){
-            $today = Carbon::today();
-            $create = new Carbon($loan->created_at);
-            $checkDate = $create->addMonth($loan->term);
-            if($checkDate>$today){
+//            $today = Carbon::today();
+//            $create = new Carbon($loan->created_at);
+//            $checkDate = $create->addMonth($loan->term);
+//            if($checkDate>$today){
+//                return response()->json([
+//                    [
+//                        'errors' => ['error' => 'Bạn đang trong một gói vay khác!']
+//                    ]
+//                ], 500);
+//            }
+            $a=$loan->status;
+            if($a == 1){
+                return response()->json([
+                    [
+                        'errors' => ['error' => 'Bạn đang trong một gói vay khác!']
+                    ]
+                ], 500);
+            }elseif($a == 2){
+                return response()->json([
+                    [
+                        'errors' => ['error' => 'Bạn đang trong một gói vay khác!']
+                    ]
+                ], 500);
+            }elseif($a == 3){
+                return response()->json([
+                    [
+                        'errors' => ['error' => 'Bạn đang trong một gói vay khác!']
+                    ]
+                ], 500);
+            }elseif($a == 4){
                 return response()->json([
                     [
                         'errors' => ['error' => 'Bạn đang trong một gói vay khác!']
@@ -53,7 +79,7 @@ class LoanController extends Controller
             'loan' => $request['loan'],
             'term' => $request['term'],
             'salary' => $request['salary'],
-            'status'=> 1 ,
+            'status'=>1,
             'matp' => $request['matp'],
         ]);
         return response()->json($newLoan, 200);
