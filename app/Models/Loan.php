@@ -15,4 +15,5 @@ class Loan extends Model
     public function province(){
         return $this->belongsTo(Province::class, 'matp');
     }
+
 }
