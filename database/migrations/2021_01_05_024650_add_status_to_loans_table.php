@@ -14,7 +14,7 @@ class AddStatusToLoansTable extends Migration
     public function up()
     {
         Schema::table('loans', function (Blueprint $table) {
-            $table->enum('status',['New','Confirm','In Process','Paycheck','Cancel','Completed'])->after('salary')->default('New');
+            $table->smallInteger('status')->default(1);
         });
     }
 
@@ -26,7 +26,7 @@ class AddStatusToLoansTable extends Migration
     public function down()
     {
         Schema::table('loans', function (Blueprint $table) {
-            //
+            $table->dropColumn('status');
         });
     }
 }

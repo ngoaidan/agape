@@ -21,7 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_18_012741_create_loans_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_18_012741_create_loans_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_05_024650_add_status_to_loans_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_05_024650_add_status_to_loans_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +204,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/vendor/voyager/loans" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FoodKhang" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -351,7 +352,7 @@
       <workItem from="1609733826707" duration="1024000" />
       <workItem from="1609739012274" duration="3200000" />
       <workItem from="1609746358805" duration="4352000" />
-      <workItem from="1609814348186" duration="7411000" />
+      <workItem from="1609814348186" duration="9419000" />
     </task>
     <servers />
   </component>

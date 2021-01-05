@@ -93,12 +93,12 @@
                                     <div class="form-group">
                                         <label for="status">Status</label>
                                         <select class="form-control" name="status">
-                                            <option value="New"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'New') selected="selected"@endif>New</option>
-                                            <option value="Confirm"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'Confirm') selected="selected"@endif>Confirm</option>
-                                            <option value="In Process"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'In Process') selected="selected"@endif>In Process</option>
-                                            <option value="Paycheck"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'Paycheck') selected="selected"@endif>Paycheck</option>
-                                            <option value="Cancel"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'Cancel') selected="selected"@endif>Cancel</option>
-                                            <option value="Completed"@if(isset($dataTypeContent->status) && $dataTypeContent->status == 'Completed') selected="selected"@endif>Completed</option>
+                                            <option value="1"@if(isset($dataTypeContent->status) && $dataTypeContent->status == '1') selected="selected"@endif>New</option>
+                                            <option value="2"@if(isset($dataTypeContent->status) && $dataTypeContent->status == '2') selected="selected"@endif>Confirm</option>
+                                            <option value="3"@if(isset($dataTypeContent->status) && $dataTypeContent->status == '3') selected="selected"@endif>In Process</option>
+                                            <option value="4"@if(isset($dataTypeContent->status) && $dataTypeContent->status == '4') selected="selected"@endif>Paycheck</option>
+                                            <option value="0"@if(isset($dataTypeContent->status) && $dataTypeContent->status == '0') selected="selected"@endif>Cancel</option>
+                                            <option value="5"@if(isset($dataTypeContent->status) && $dataTypeContent->status == '5) selected="selected"@endif>Completed</option>
                                         </select>
                                     </div>
                                 </div>
