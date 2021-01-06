@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/voyager.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/voyager.php" afterDir="false" />
-    </list>
+    <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -354,7 +351,7 @@
       <workItem from="1609814348186" duration="11163000" />
       <workItem from="1609838345120" duration="1765000" />
       <workItem from="1609841020028" duration="439000" />
-      <workItem from="1609902962875" duration="3076000" />
+      <workItem from="1609902962875" duration="3466000" />
     </task>
     <servers />
   </component>
