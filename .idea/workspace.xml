@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="" />
+    <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -200,7 +203,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/vendor/voyager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -213,6 +216,7 @@
       <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager\supports" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager" />
       <recent name="D:\xampp\htdocs\agape\app\Http\Controllers\Admin" />
       <recent name="D:\xampp\htdocs\agape\app\Http\Controllers" />
       <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager\orders" />
@@ -351,7 +355,9 @@
       <workItem from="1609814348186" duration="11163000" />
       <workItem from="1609838345120" duration="1765000" />
       <workItem from="1609841020028" duration="439000" />
-      <workItem from="1609902962875" duration="3466000" />
+      <workItem from="1609902962875" duration="4984000" />
+      <workItem from="1609922234468" duration="2798000" />
+      <workItem from="1609988480643" duration="1349000" />
     </task>
     <servers />
   </component>

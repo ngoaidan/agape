@@ -2,6 +2,7 @@
 
 use App\Jobs\PushNotificationJob;
 use Illuminate\Support\Facades\Route;
+use TCG\Voyager\Facades\Voyager;
 
 /*
 |--------------------------------------------------------------------------
