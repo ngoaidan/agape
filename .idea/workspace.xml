@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/custom.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,24 +203,24 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\agape\public\js" />
       <recent name="D:\xampp\htdocs\agape\public" />
       <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager" />
       <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager\loans" />
       <recent name="D:\xampp\htdocs\agape\app\Http\Resources" />
-      <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager\posts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager\resources\views" />
       <recent name="D:\xampp\htdocs\agape\app" />
       <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager" />
       <recent name="D:\xampp\htdocs\agape\app\Http\Controllers\Admin" />
       <recent name="D:\xampp\htdocs\agape\app\Http\Controllers" />
-      <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager\orders" />
     </key>
   </component>
   <component name="RunManager">
@@ -361,7 +360,7 @@
       <workItem from="1609988480643" duration="7518000" />
       <workItem from="1610005157380" duration="2549000" />
       <workItem from="1610072445831" duration="22000" />
-      <workItem from="1610439002213" duration="1502000" />
+      <workItem from="1610439002213" duration="2623000" />
     </task>
     <servers />
   </component>
