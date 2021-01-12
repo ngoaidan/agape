@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/voyager/products/edit-add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/voyager/products/edit-add.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -361,7 +361,7 @@
       <workItem from="1609988480643" duration="7518000" />
       <workItem from="1610005157380" duration="2549000" />
       <workItem from="1610072445831" duration="22000" />
-      <workItem from="1610439002213" duration="5271000" />
+      <workItem from="1610439002213" duration="6543000" />
     </task>
     <servers />
   </component>

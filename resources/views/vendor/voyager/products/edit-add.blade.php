@@ -54,6 +54,7 @@
             min-height: 100%;
         }
     </style>
+
 @stop
 
 @section('page_title', __('voyager::generic.'.($edit ? 'edit' : 'add')).' '.$dataType->getTranslatedAttribute('display_name_singular'))
@@ -111,6 +112,7 @@
                         </div>
 
                         <div class="panel-body">
+
                             @php
                                 $row = $dataTypeRows->where('field', 'options')->first();
                             @endphp
@@ -329,4 +331,6 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({selector:'textarea'});</script>
 @stop
