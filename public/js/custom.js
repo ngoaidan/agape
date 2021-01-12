@@ -4,7 +4,7 @@ function tinymce_setup_callback(editor) {
         selector: "richTextBox",
         skin_url:
             $('meta[name="assets-path"]').attr("content") + "?path=js/skins/voyager",
-        min_height: 100,
+        min_height: 400,
         height: 200,
         resize: "vertical",
         plugins: "link, image, code, table, textcolor, lists",

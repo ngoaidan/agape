@@ -334,6 +334,6 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/qpdlbwg6bqiob1m9hf8vffx0daac29tlyvxz59i58c201g3j/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>tinymce.init({selector:'textarea'});</script>
 @stop
