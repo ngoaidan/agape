@@ -201,8 +201,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ecomerce_voyager_fix_css" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -215,11 +216,11 @@
       <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager\supports" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\agape\app" />
       <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager" />
       <recent name="D:\xampp\htdocs\agape\app\Http\Controllers\Admin" />
       <recent name="D:\xampp\htdocs\agape\app\Http\Controllers" />
       <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager\orders" />
-      <recent name="D:\xampp\htdocs\agape\resources\views\vendor\voyager\order-services" />
     </key>
   </component>
   <component name="RunManager">
@@ -356,7 +357,9 @@
       <workItem from="1609841020028" duration="439000" />
       <workItem from="1609902962875" duration="4984000" />
       <workItem from="1609922234468" duration="2798000" />
-      <workItem from="1609988480643" duration="3226000" />
+      <workItem from="1609988480643" duration="7518000" />
+      <workItem from="1610005157380" duration="2549000" />
+      <workItem from="1610072445831" duration="22000" />
     </task>
     <servers />
   </component>
