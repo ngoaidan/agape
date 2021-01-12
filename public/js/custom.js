@@ -1,8 +1,7 @@
-tinymce.init(window.voyagerTinyMCE.getConfig());
 function tinymce_setup_callback(editor) {
     tinymce.init({
         menubar: false,
-        selector: "textarea.richTextBox",
+        selector: "richTextBox",
         skin_url:
             $('meta[name="assets-path"]').attr("content") + "?path=js/skins/voyager",
         min_height: 100,

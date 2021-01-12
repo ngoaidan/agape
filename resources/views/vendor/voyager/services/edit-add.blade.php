@@ -51,39 +51,6 @@
             overflow-x: hidden;
             min-height: 100%;
         }
-        .mce-tinymce {
-            visibility: inherit !important;
-            position: relative;
-        }
-        .mce-container, .mce-container *, .mce-widget, .mce-widget *, .mce-reset {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            outline: 0;
-            vertical-align: top;
-            background: transparent;
-            background-color: transparent;
-            text-decoration: none;
-            color: #333;
-            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-            font-size: 14px;
-            text-shadow: none;
-            float: none;
-            position: static;
-            width: auto;
-            height: auto;
-            white-space: nowrap;
-            cursor: inherit;
-            -webkit-tap-highlight-color: transparent;
-            line-height: normal;
-            font-weight: normal;
-            text-align: left;
-            -moz-box-sizing: content-box;
-            -webkit-box-sizing: content-box;
-            box-sizing: content-box;
-            direction: ltr;
-            max-width: none;
-        }
     </style>
 @stop
 
