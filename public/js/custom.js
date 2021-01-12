@@ -1,3 +1,4 @@
+tinymce.init(window.voyagerTinyMCE.getConfig());
 function tinymce_setup_callback(editor) {
     tinymce.init({
         menubar: false,
