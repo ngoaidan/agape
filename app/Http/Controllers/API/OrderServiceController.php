@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderServiceResource;
+use App\Jobs\PushNotificationJob;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderService;
@@ -31,6 +32,23 @@ class OrderServiceController extends Controller
             $customer->cumulative_points += $orderService->cumulative_points;
             $customer->save();
         }
+        $deviceTokens = array($customer->device_token);
+        $notify = \App\Models\Notification::create(
+            [
+                'topic' => 'ORDER',
+                'title' => 'Đăng kí dịch vụ thành công!',
+                'body' => 'Dịch vụ '. $service->title .' của bạn đang được xử lý.',
+            ]
+        );
+
+        PushNotificationJob::dispatch('sendBatchNotification', [
+            $deviceTokens,
+            [
+                'topicName' => $notify->topic,
+                'title' => $notify->title,
+                'body' => $notify->body,
+            ],
+        ]);
 //        return $customer;
         return response()->json($orderService, 200);
     }
