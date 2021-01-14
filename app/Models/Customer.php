@@ -43,7 +43,7 @@ class Customer extends Authenticatable
             // placeholder image if image field is empty
             'placeholder' => '/users/default.png',
             // validation rules when uploading image
-            'rules' => 'image|max:10000'
+            'rules' => 'max:20000'
         ]
     ];
 
