@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67674cc2-7c5a-4ecb-b53a-a55688ccf76c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/voyager/services/edit-add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/voyager/services/edit-add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +203,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -360,7 +360,12 @@
       <workItem from="1609988480643" duration="7518000" />
       <workItem from="1610005157380" duration="2549000" />
       <workItem from="1610072445831" duration="22000" />
-      <workItem from="1610439002213" duration="8101000" />
+      <workItem from="1610439002213" duration="8332000" />
+      <workItem from="1610504670338" duration="540000" />
+      <workItem from="1610526589012" duration="870000" />
+      <workItem from="1610529748018" duration="1850000" />
+      <workItem from="1610539191778" duration="226000" />
+      <workItem from="1610590732925" duration="846000" />
     </task>
     <servers />
   </component>
