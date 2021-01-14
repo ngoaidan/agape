@@ -13,7 +13,7 @@ class AvatarRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class AvatarRequest extends FormRequest
     public function rules()
     {
         return [
-//            'avatar' => 'image','mimes:jpg,png', 'mimetypes:image/jpg,image/png','max:2048',
+            'avatar' => 'image','mimes:jpg,png', 'mimetypes:image/jpg,image/png','max:100000',
         ];
     }
 
