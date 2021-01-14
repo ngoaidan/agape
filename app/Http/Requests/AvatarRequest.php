@@ -24,7 +24,7 @@ class AvatarRequest extends FormRequest
     public function rules()
     {
         return [
-            'avatar' => 'image','mimes:jpeg,png','max:100000',
+            'avatar' => 'image','max:100000',
         ];
     }
 
@@ -36,7 +36,7 @@ class AvatarRequest extends FormRequest
     public function messages()
     {
         return [
-//            'avatar.image' => 'Vui lòng kiểm tra lại file hình ảnh',
+            'avatar.image' => 'Vui lòng kiểm tra lại file hình ảnh',
         ];
     }
 }

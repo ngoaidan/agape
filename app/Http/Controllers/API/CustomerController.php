@@ -93,7 +93,9 @@ class CustomerController extends Controller
     public function uploadAvatar(AvatarRequest $request){
 
         $customer = Customer::find(Auth::id());
-
+        $this->validate($request, [
+            'avatar' => 'mimes:jpg,png,bmp,tiff','max:100000',
+        ]);
         if ($request->hasfile('avatar')) {
             $customer->uploadImage(request()->file('avatar'), 'avatar');
             $customer->save();
