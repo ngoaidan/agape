@@ -36,7 +36,7 @@ class AvatarRequest extends FormRequest
     public function messages()
     {
         return [
-            'avatar.image' => 'Vui lòng kiểm tra lại file hình ảnh',
+            'avatar.max' => 'Vui lòng kiểm tra lại file hình ảnh',
         ];
     }
 }
