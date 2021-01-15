@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('customers/publish','Voyager\CustomerController@publish')->name('customers.publish');
-    Route::get('supports/publish','Voyager\SupportController@publish')->name('supports.publish');
+    Route::post('supports/updated','Admin\SupportController@updated')->name('supports.publish');
     Route::post('orders/updated','Admin\OrderProductController@updated')->name('orders.updated');
     Route::post('order-services/updated','Admin\OrderServiceController@updated')->name('order-services.updated');
     Route::post('loans/updated','Admin\LoansController@updated')->name('loans.updated');

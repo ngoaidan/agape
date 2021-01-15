@@ -156,9 +156,22 @@
                                                         @endif
 
                                                 @elseif(($row->type == 'select_dropdown' || $row->type == 'radio_btn') && property_exists($row->details, 'options'))
-
+                                                    @php
+                                                        $labelColor = 'label-success';
+                                                        switch ($data->{$row->field}) {
+                                                            case \App\Models\Support::STATUS_COMPLETED :
+                                                                $labelColor = 'label-primary';
+                                                                break;
+                                                            case \App\Models\Support::STATUS_CANCEL :
+                                                                $labelColor = 'label-default';
+                                                                break;
+                                                            default :
+                                                                break;
+                                                        }
+                                                    @endphp
+                                                    <span class="label {{$labelColor}}">
                                                     {!! $row->details->options->{$data->{$row->field}} ?? '' !!}
-
+                                                    </span>
                                                 @elseif($row->type == 'date' || $row->type == 'timestamp')
                                                     @if ( property_exists($row->details, 'format') && !is_null($data->{$row->field}) )
                                                         {{ \Carbon\Carbon::parse($data->{$row->field})->formatLocalized($row->details->format) }}
@@ -257,9 +270,24 @@
 {{--                                                @endif--}}
 {{--                                            @endforeach--}}
                                             @can('edit', $data)
-                                                <a href="{{ route($dataType->slug.'.publish', array("id"=>$data->{$data->getKeyName()})) }}" class="btn btn-sm btn-primary pull-right edit">
-                                                    <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Change Status</span>
-                                                </a>
+                                                <form class="form-edit-add"
+                                                      role="form"
+                                                      action="{{ route($dataType->slug.'.publish',array("id"=>$data->{$data->getKeyName()})) }}"
+                                                      method="post"
+                                                      enctype="multipart/form-data">
+                                                    {{ csrf_field() }}
+                                                    <div class="form-group">
+                                                        <select class="form-control" name="status">
+                                                            <option value="{{\App\Models\Support::STATUS_NEW}}" @if(isset($data->status) && $data->status == \App\Models\Support::STATUS_NEW) selected="selected"@endif>New Order</option>
+                                                            <option value="{{\App\Models\Support::STATUS_COMPLETED}}" @if(isset($data->status) && $data->status == \App\Models\Support::STATUS_COMPLETED) selected="selected"@endif>Completed</option>
+                                                            <option value="{{\App\Models\Support::STATUS_CANCEL}}" @if(isset($data->status) && $data->status == \App\Models\Support::STATUS_CANCEL) selected="selected"@endif>Cancel</option>
+                                                        </select>
+                                                    </div>
+                                                    @section('submit-buttons')
+                                                        <button type="submit" class="btn btn-primary save">Change Status</button>
+                                                    @stop
+                                                    @yield('submit-buttons')
+                                                </form>
                                             @endcan
                                         </td>
                                     </tr>
