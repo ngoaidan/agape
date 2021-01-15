@@ -145,7 +145,9 @@ return [
         ],
 
         'widgets' => [
-
+            'App\\Widgets\\Customers',
+            'App\\Widgets\\Services',
+            'App\\Widgets\\Products',
         ],
 
     ],

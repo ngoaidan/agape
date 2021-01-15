@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd31b10a-b204-4d35-b8b0-5e33adcfd089" name="Default Changelist" comment="" />
+    <list default="true" id="dd31b10a-b204-4d35-b8b0-5e33adcfd089" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/SearchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/voyager.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/voyager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DataRowsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DataRowsTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DataTypesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DataTypesTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/avatars/zIcz9T5uW1biQPkQeR7ds1ZRJ3lUeTjgVKz4JpK2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/pages/page1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post1-cropped.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post1-medium.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post1-small.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post2-cropped.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post2-medium.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post2-small.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post3-cropped.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post3-medium.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post3-small.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post4-cropped.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post4-medium.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post4-small.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/posts/post4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/users/October2020/nEbfg0SPIL5W6WNEPMMN.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/users/default.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -174,9 +201,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FoodKhang" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\agape\app" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -186,7 +218,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1610691171174</updated>
-      <workItem from="1610691207178" duration="2215000" />
+      <workItem from="1610691207178" duration="9696000" />
     </task>
     <servers />
   </component>
