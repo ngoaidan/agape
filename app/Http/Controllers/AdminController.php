@@ -143,7 +143,7 @@ class AdminController extends VoyagerBaseController
     if (view()->exists("voyager::$slug.browse")) {
         $view = "voyager::$slug.browse";
     }
-    if($request['status']){
+    if($request['status'] != null){
         $dataTypeContent = $dataTypeContent->where('status', $request['status']);
     }
 
