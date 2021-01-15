@@ -144,16 +144,17 @@
                             </div>
                         </div>
                         <div class="panel-body">
+
                             <div class="form-group">
                                 @php
-                                    $row = $dataTypeRows->where('field', 'cumulative_points')->first();
+                                    $row = $dataTypeRows->where('field', 'images')->first();
                                 @endphp
                                 <label for="name">{{ $row->getTranslatedAttribute('display_name') }}</label>
                                 {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
                             </div>
                             <div class="form-group">
                                 @php
-                                    $row = $dataTypeRows->where('field', 'images')->first();
+                                    $row = $dataTypeRows->where('field', 'cumulative_points')->first();
                                 @endphp
                                 <label for="name">{{ $row->getTranslatedAttribute('display_name') }}</label>
                                 {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
