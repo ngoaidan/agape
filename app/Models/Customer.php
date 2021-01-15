@@ -11,13 +11,20 @@ class Customer extends Authenticatable
 {
     use Notifiable, HasApiTokens;
     use HasImageUploads;
-
+    const STATUS_ACCEPT = 'ACCEPT';
+    const STATUS_BLOCK = 'BLOCK';
     protected $fillable = [
         'name', 'enterprise_id', 'identity_number', 'password', 'uid', 'sex', 'birth', 'matp', 'phone_number', 'device_token','makcn'
     ];
 
     protected $guarded = ['phone_number'];
-
+    public static function getListStatus()
+    {
+        return [
+            self::STATUS_ACCEPT => 'ACCEPT',
+            self::STATUS_BLOCK => 'BLOCK'
+        ];
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

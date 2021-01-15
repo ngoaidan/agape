@@ -159,8 +159,19 @@
                                                         @endif
 
                                                 @elseif(($row->type == 'select_dropdown' || $row->type == 'radio_btn') && property_exists($row->details, 'options'))
-
+                                                    @php
+                                                        $labelColor = 'label-success';
+                                                        switch ($data->{$row->field}) {
+                                                            case \App\Models\Customer::STATUS_BLOCK :
+                                                                $labelColor = 'label-default';
+                                                                break;
+                                                            default :
+                                                                break;
+                                                        }
+                                                    @endphp
+                                                    <span class="label {{$labelColor}}">
                                                     {!! $row->details->options->{$data->{$row->field}} ?? '' !!}
+                                                    </span>
 
                                                 @elseif($row->type == 'date' || $row->type == 'timestamp')
                                                     @if ( property_exists($row->details, 'format') && !is_null($data->{$row->field}) )
