@@ -11,6 +11,6 @@ class OrderServiceController extends AdminController
         $order = OrderService::where('id', \request("id"))->first();
         $order->status = $request->status;
         $order->save();
-        return redirect()->route('voyager.order-services.index');
+        return back();
     }
 }

@@ -274,10 +274,10 @@
                                                         {{ csrf_field() }}
                                                         <div class="form-group">
                                                             <select class="form-control" name="status">
-                                                                <option value="2"@if(isset($dataTypeContent->status) && $dataTypeContent->status == '2') selected="selected"@endif>New Order</option>
-                                                                <option value="3"@if(isset($dataTypeContent->status) && $dataTypeContent->status == '3') selected="selected"@endif>In Process</option>
-                                                                <option value="1"@if(isset($dataTypeContent->status) && $dataTypeContent->status == '1') selected="selected"@endif>Completed</option>
-                                                                <option value="0"@if(isset($dataTypeContent->status) && $dataTypeContent->status == '0') selected="selected"@endif>Cancel</option>
+                                                                <option value="2"@if(isset($data->status) && $data->status == '2') selected="selected"@endif>New Order</option>
+                                                                <option value="3"@if(isset($data->status) && $data->status == '3') selected="selected"@endif>In Process</option>
+                                                                <option value="1"@if(isset($data->status) && $data->status == '1') selected="selected"@endif>Completed</option>
+                                                                <option value="0"@if(isset($data->status) && $data->status == '0') selected="selected"@endif>Cancel</option>
                                                             </select>
                                                         </div>
                                                             @section('submit-buttons')

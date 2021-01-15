@@ -11,6 +11,6 @@ class OrderProductController extends AdminController
         $order = Order::where('id', \request("id"))->first();
         $order->status = $request->status;
         $order->save();
-        return redirect()->route('voyager.orders.index');
+        return back();
     }
 }
