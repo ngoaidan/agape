@@ -36,7 +36,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 Route::get('test', function (){
-    $deviceTokens = \App\Models\Customer::whereNotNull('device_token')->get('device_token')->pluck('device_token');
+    $deviceTokens = \App\Models\Customer::whereNotNull('device_token')->get('device_token')->pluck('device_token')->toArray();
     $notify = \App\Models\Notification::create(
         [
             'topic' => 'promotion',

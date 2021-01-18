@@ -3,6 +3,12 @@
 @section('page_title', __('voyager::generic.viewing').' '.$dataType->getTranslatedAttribute('display_name_plural'))
 
 @section('page_header')
+    <style>
+        .voyager #bulk_delete_btn, .voyager .btn-add-new {
+            margin-top: 2px;
+            display: none;
+        }
+    </style>
     <div class="container-fluid">
         <h1 class="page-title">
             <i class="{{ $dataType->icon }}"></i> {{ $dataType->getTranslatedAttribute('display_name_plural') }}
@@ -267,16 +273,12 @@
                                         <td class="no-sort no-click bread-actions">
 {{--                                            @foreach($actions as $action)--}}
 {{--                                                @if ($action->shouldActionDisplayOnDataType())--}}
-{{--                                                    @include('voyager::bread.partials.actions', ['action' => $action])--}}
+{{--                                                    @include('voyager::bread.partials.actions', ['customers' => $action])--}}
 {{--                                                @endif--}}
 {{--                                            @endforeach--}}
-{{--                                            <form action="{{route('customers.publish')}}" enctype="multipart/form-data">--}}
-{{--                                                <input type="hidden" value="{{$dataTypeContent->status}}" name="id">--}}
-{{--                                                <button class="btn btn-success" @if(isset($dataTypeContent->status) && $dataTypeContent->status=="ACCEPT") type="submit"@endif></button>--}}
-{{--                                            </form>--}}
                                             @can('edit', $data)
                                                 <a href="{{ route($dataType->slug.'.publish', array("id"=>$data->{$data->getKeyName()})) }}" class="btn btn-sm btn-primary pull-right edit">
-                                                    <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Change Status</span>
+                                                    <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">{{$data->{'status'}=="ACCEPT"?'Block':'Accept'}}</span>
                                                 </a>
                                             @endcan
                                         </td>
