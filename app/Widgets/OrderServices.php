@@ -2,13 +2,15 @@
 
 namespace App\Widgets;
 
-use App\Models\Product;
+use App\Models\Customer;
+use App\Models\Order;
+use App\Models\OrderService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Widgets\BaseDimmer;
 
-class Products extends BaseDimmer
+class OrderServices extends BaseDimmer
 {
     /**
      * The configuration array.
@@ -23,18 +25,18 @@ class Products extends BaseDimmer
      */
     public function run()
     {
-        $count = Product::count();
-        $string = 'Products';
+        $count = OrderService::where('status',OrderService::STATUS_NEW)->count();
+        $string = 'New Order Services';
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon'   => 'voyager-bag',
+            'icon'   => 'voyager-polaroid',
             'title'  => "{$count} {$string}",
-            'text'   =>'You have '.$count.' products in your database. Click on button below to view all '.$string.'',
+            'text'   =>'You have '.$count.' new order services. Click on button below to view '.$string.'',
             'button' => [
-                'text' => 'Products',
-                'link' => route('voyager.products.index'),
+                'text' =>'New Order Services',
+                'link' =>('/admin/order-services?status=2'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/02.jpg'),
+            'image' => '/images/order-service-bg.jpg',
         ]));
     }
 

@@ -148,6 +148,9 @@ return [
             'App\\Widgets\\Customers',
             'App\\Widgets\\Services',
             'App\\Widgets\\Products',
+            'App\\Widgets\\Orders',
+            'App\\Widgets\\OrderServices',
+            'App\\Widgets\\Supports',
         ],
 
     ],

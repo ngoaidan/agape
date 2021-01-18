@@ -29,12 +29,12 @@ class Services extends BaseDimmer
         return view('voyager::dimmer', array_merge($this->config, [
             'icon'   => 'voyager-camera',
             'title'  => "{$count} {$string}",
-            'text'   => __('voyager::dimmer.user_text', ['count' => $count, 'string' => Str::lower($string)]),
+            'text'   => 'You have '.$count.' services in your database. Click on button below to view all '.$string.'',
             'button' => [
                 'text' => 'Services',
                 'link' => route('voyager.services.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/01.jpg'),
+            'image' => '/images/service-bg.jpg',
         ]));
     }
 

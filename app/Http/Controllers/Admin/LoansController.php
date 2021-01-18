@@ -11,6 +11,6 @@ class LoansController extends AdminController
         $loan = Loan::where('id', \request("id"))->first();
         $loan->status = $request->status;
         $loan->save();
-        return redirect()->route('voyager.loans.index');
+        return back();
     }
 }

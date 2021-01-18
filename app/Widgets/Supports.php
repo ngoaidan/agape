@@ -2,13 +2,15 @@
 
 namespace App\Widgets;
 
-use App\Models\Product;
+use App\Models\Customer;
+use App\Models\Order;
+use App\Models\Support;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Widgets\BaseDimmer;
 
-class Products extends BaseDimmer
+class Supports extends BaseDimmer
 {
     /**
      * The configuration array.
@@ -23,18 +25,18 @@ class Products extends BaseDimmer
      */
     public function run()
     {
-        $count = Product::count();
-        $string = 'Products';
+        $count = Support::where('status',Support::STATUS_NEW)->count();
+        $string = 'Supports';
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon'   => 'voyager-bag',
+            'icon'   => 'voyager-shop',
             'title'  => "{$count} {$string}",
-            'text'   =>'You have '.$count.' products in your database. Click on button below to view all '.$string.'',
+            'text'   => 'You have '.$count.' new supports request in your database. Click on button below to view new '.$string.'',
             'button' => [
-                'text' => 'Products',
-                'link' => route('voyager.products.index'),
+                'text' =>'Support',
+                'link' => ('/admin/supports?status=NEW'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/02.jpg'),
+            'image' => voyager_asset('images/widget-backgrounds/03.jpg'),
         ]));
     }
 

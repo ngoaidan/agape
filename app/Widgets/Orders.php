@@ -2,13 +2,15 @@
 
 namespace App\Widgets;
 
-use App\Models\Product;
+use App\Models\Customer;
+use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Widgets\BaseDimmer;
+use const Grpc\STATUS_CANCELLED;
 
-class Products extends BaseDimmer
+class Orders extends BaseDimmer
 {
     /**
      * The configuration array.
@@ -23,18 +25,18 @@ class Products extends BaseDimmer
      */
     public function run()
     {
-        $count = Product::count();
-        $string = 'Products';
+        $count = Order::where('status',Order::STATUS_NEW)->count();
+        $string = 'New Orders';
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon'   => 'voyager-bag',
+            'icon'   => 'voyager-basket',
             'title'  => "{$count} {$string}",
-            'text'   =>'You have '.$count.' products in your database. Click on button below to view all '.$string.'',
+            'text'   => 'You have '.$count.' new orders . Click on button below to view '.$string.'',
             'button' => [
-                'text' => 'Products',
-                'link' => route('voyager.products.index'),
+                'text' =>'New Orders',
+                'link' =>('/admin/orders?status=2'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/02.jpg'),
+            'image' =>'/images/orders-bg.jpg',
         ]));
     }
 
