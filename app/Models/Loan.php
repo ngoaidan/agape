@@ -6,24 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Loan extends Model
 {
-    const STATUS_1= "New";
-    const STATUS_2 = "Confirm";
-    const STATUS_3 = "In Process";
-    const STATUS_4 = "Paycheck";
-    const STATUS_5= "Completed";
-    const STATUS_0 = "Cancel";
+    const STATUS_NEW = 1;
+    const STATUS_CONFIRM = 2;
+    const STATUS_INPROCESS = 3;
+    const STATUS_PAYCHECK = 4;
+    const STATUS_COMPLETED = 5;
+    const STATUS_CANCELLED = 0;
+
 
     protected $guarded = [];
 
     public static function getListStatus()
     {
         return [
-            self::STATUS_1 => "New",
-            self::STATUS_2 => "Confirm",
-            self::STATUS_3 => "In Process",
-            self::STATUS_4 => "Paycheck",
-            self::STATUS_5 => "Completed",
-            self::STATUS_0 => "Cancel"
+            self::STATUS_NEW => "New",
+            self::STATUS_CONFIRM => "Confirm",
+            self::STATUS_INPROCESS => "In Process",
+            self::STATUS_PAYCHECK => "Paycheck",
+            self::STATUS_COMPLETED => "Completed",
+            self::STATUS_CANCELLED => "Cancel"
 
         ];
     }

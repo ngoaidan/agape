@@ -160,13 +160,19 @@
                                                         $labelColor = 'label-primary';
 
                                                             switch ($data->{$row->field}) {
-                                                                case \App\Models\Loan::STATUS_3 :
+                                                                case \App\Models\Loan::STATUS_INPROCESS :
                                                                     $labelColor = 'label-warning';
                                                                     break;
-                                                                case \App\Models\Loan::STATUS_0 :
+                                                                case \App\Models\Loan::STATUS_CANCELLED :
+                                                                    $labelColor = 'label-default';
+                                                                    break;
+                                                                case \App\Models\Loan::STATUS_CONFIRM :
+                                                                    $labelColor = 'label-info';
+                                                                    break;
+                                                                case \App\Models\Loan::STATUS_COMPLETED :
                                                                     $labelColor = 'label-danger';
                                                                     break;
-                                                                case \App\Models\Loan::STATUS_2 :
+                                                                case \App\Models\Loan::STATUS_PAYCHECK :
                                                                     $labelColor = 'label-success';
                                                                     break;
                                                                 default :
