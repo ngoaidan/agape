@@ -97,8 +97,6 @@ class AuthController extends Controller
                 }
                 $customer->device_tokens = json_encode($listDevice);
                 $customer->save();
-                return $customer->device_tokens;
-
             }
             return response()->json($this->authService->successAuthResponse($tokenResult));
 
