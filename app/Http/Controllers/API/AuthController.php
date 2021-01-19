@@ -80,7 +80,7 @@ class AuthController extends Controller
             $tokenResult = $this->createToken($customer);
             if(isset($request['device_token'])){
                 $customer->device_token = $request['device_token'];
-                Customer::where('device_token',$request['device_token'])->updateOrInsert([ 'device_token' => $request['device_token'] ?? null,]);
+                Customer::where('device_token',$request['device_token'])->update([ 'device_token_at' => $request['device_token']]);
                 $customer->save();
             }
 
