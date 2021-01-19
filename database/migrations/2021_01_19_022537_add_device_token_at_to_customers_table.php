@@ -14,7 +14,7 @@ class AddDeviceTokenAtToCustomersTable extends Migration
     public function up()
     {
         Schema::table('customers', function (Blueprint $table) {
-            $table->string('device_token_at')->nullable()->after('device_token');
+            $table->text('device_tokens')->nullable()->after('device_token');
         });
     }
 
@@ -26,7 +26,7 @@ class AddDeviceTokenAtToCustomersTable extends Migration
     public function down()
     {
         Schema::table('customers', function (Blueprint $table) {
-            //
+            $table->dropColumn('device_tokens');
         });
     }
 }
