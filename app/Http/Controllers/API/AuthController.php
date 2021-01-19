@@ -79,11 +79,14 @@ class AuthController extends Controller
         if (Hash::check($request->password, $customer->password)) {
             $tokenResult = $this->createToken($customer);
             if(isset($request['device_token'])){
-                $customer->device_token = $request['device_token'];
-                Customer::where('device_token',$request['device_token'])->update([ 'device_token_at' => $request['device_token']]);
-                $customer->save();
-            }
 
+                if($request['device_token'] !== $customer->device_token){
+                    $customer->device_token=$request['device_token'];
+                    $customer->device_token_at=array_merge((array)$customer->device_token_at,(array)$request['device_token']);
+                    $customer->save();
+                }
+
+            }
             return response()->json($this->authService->successAuthResponse($tokenResult));
 
         } else {
