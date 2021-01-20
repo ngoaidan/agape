@@ -35,11 +35,11 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
-Route::get('test', function (){
+Route::get('test-notify', function (){
     $deviceTokens = \App\Models\Customer::whereNotNull('device_token')->get('device_token')->pluck('device_token')->toArray();
     $notify = \App\Models\Notification::create(
         [
-            'topic' => 'promotion',
+            'topic' => 'PROMO',
             'title' => 'Chương trình khuyến mãi',
             'body' => 'Chúc mừng bạn đã nhận được thẻ quà tặng',
         ]

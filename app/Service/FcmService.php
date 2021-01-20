@@ -40,6 +40,8 @@ class FcmService implements NotificationService
             'data' => [
                 'url' => $data['url'] ?? null,
                 'redirect_to' => $data['redirect_to'] ?? null,
+                'topic' => $topicName
+
             ],
             'apns' => [
                 'payload' => [
